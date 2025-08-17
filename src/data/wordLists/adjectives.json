@@ -1,0 +1,1123 @@
+{
+  "id": "adjectives-list",
+  "name": "Adjectives",
+  "description": "Adjectives",
+  "words": [
+    {
+      "id": "1",
+      "tajik": "ганда",
+      "english": "bad",
+      "level": "1"
+    },
+    {
+      "id": "2",
+      "tajik": "калон",
+      "english": "big",
+      "level": "1"
+    },
+    {
+      "id": "3",
+      "tajik": "гарм",
+      "english": "hot",
+      "level": "1"
+    },
+    {
+      "id": "4",
+      "tajik": "зебо",
+      "english": "beautiful",
+      "level": "2"
+    },
+    {
+      "id": "5",
+      "tajik": "арзон",
+      "english": "cheap",
+      "level": "2"
+    },
+    {
+      "id": "6",
+      "tajik": "хунук",
+      "english": "cold",
+      "level": "2"
+    },
+    {
+      "id": "7",
+      "tajik": "душвор",
+      "english": "difficult",
+      "level": "2"
+    },
+    {
+      "id": "8",
+      "tajik": "осон",
+      "english": "easy",
+      "level": "2"
+    },
+    {
+      "id": "9",
+      "tajik": "қимат",
+      "english": "expensive",
+      "level": "2"
+    },
+    {
+      "id": "10",
+      "tajik": "гурусна",
+      "english": "hungry",
+      "level": "2"
+    },
+    {
+      "id": "11",
+      "tajik": "бомаза",
+      "english": "tasty",
+      "level": "2"
+    },
+    {
+      "id": "12",
+      "tajik": "чиркин",
+      "english": "dirty",
+      "level": "3"
+    },
+    {
+      "id": "13",
+      "tajik": "нав",
+      "english": "new",
+      "level": "3"
+    },
+    {
+      "id": "14",
+      "tajik": "кӯҳна",
+      "english": "old (things)",
+      "level": "3"
+    },
+    {
+      "id": "15",
+      "tajik": "пир",
+      "english": "old (people)",
+      "level": "3"
+    },
+    {
+      "id": "16",
+      "tajik": "талх",
+      "english": "bitter",
+      "level": "4"
+    },
+    {
+      "id": "17",
+      "tajik": "холӣ",
+      "english": "empty",
+      "level": "4"
+    },
+    {
+      "id": "18",
+      "tajik": "фарбеҳ",
+      "english": "fat",
+      "level": "4"
+    },
+    {
+      "id": "19",
+      "tajik": "хуб",
+      "english": "good",
+      "level": "4"
+    },
+    {
+      "id": "20",
+      "tajik": "хурсанд",
+      "english": "happy",
+      "level": "4"
+    },
+    {
+      "id": "21",
+      "tajik": "бисёр",
+      "english": "many",
+      "level": "4"
+    },
+    {
+      "id": "22",
+      "tajik": "касал",
+      "english": "sick",
+      "level": "4"
+    },
+    {
+      "id": "23",
+      "tajik": "ширин",
+      "english": "sweet",
+      "level": "4"
+    },
+    {
+      "id": "24",
+      "tajik": "торик",
+      "english": "dark",
+      "level": "5"
+    },
+    {
+      "id": "25",
+      "tajik": "хушк",
+      "english": "dry",
+      "level": "5"
+    },
+    {
+      "id": "26",
+      "tajik": "босуръат",
+      "english": "fast, speedy",
+      "level": "5"
+    },
+    {
+      "id": "27",
+      "tajik": "бепул",
+      "english": "free (no cost)",
+      "level": "5"
+    },
+    {
+      "id": "28",
+      "tajik": "пур",
+      "english": "full",
+      "level": "5"
+    },
+    {
+      "id": "29",
+      "tajik": "дигар",
+      "english": "other",
+      "level": "5"
+    },
+    {
+      "id": "30",
+      "tajik": "дуруст",
+      "english": "right",
+      "level": "5"
+    },
+    {
+      "id": "31",
+      "tajik": "ором",
+      "english": "calm",
+      "level": "6"
+    },
+    {
+      "id": "32",
+      "tajik": "тоза",
+      "english": "clean",
+      "level": "6"
+    },
+    {
+      "id": "33",
+      "tajik": "наздик",
+      "english": "close",
+      "level": "6"
+    },
+    {
+      "id": "34",
+      "tajik": "салқин",
+      "english": "cool",
+      "level": "6"
+    },
+    {
+      "id": "35",
+      "tajik": "бас",
+      "english": "enough",
+      "level": "6"
+    },
+    {
+      "id": "36",
+      "tajik": "дур",
+      "english": "far",
+      "level": "6"
+    },
+    {
+      "id": "37",
+      "tajik": "бузург",
+      "english": "great",
+      "level": "6"
+    },
+    {
+      "id": "38",
+      "tajik": "сахт",
+      "english": "hard",
+      "level": "6"
+    },
+    {
+      "id": "39",
+      "tajik": "дароз",
+      "english": "long",
+      "level": "6"
+    },
+    {
+      "id": "40",
+      "tajik": "камбағал",
+      "english": "poor",
+      "level": "6"
+    },
+    {
+      "id": "41",
+      "tajik": "бой",
+      "english": "rich",
+      "level": "6"
+    },
+    {
+      "id": "42",
+      "tajik": "оҳиста",
+      "english": "slow",
+      "level": "6"
+    },
+    {
+      "id": "43",
+      "tajik": "хурд",
+      "english": "small",
+      "level": "6"
+    },
+    {
+      "id": "44",
+      "tajik": "мулоим",
+      "english": "soft",
+      "level": "6"
+    },
+    {
+      "id": "45",
+      "tajik": "махсус",
+      "english": "special",
+      "level": "6"
+    },
+    {
+      "id": "46",
+      "tajik": "азиз",
+      "english": "dear",
+      "level": "7"
+    },
+    {
+      "id": "47",
+      "tajik": "чуқур",
+      "english": "deep",
+      "level": "7"
+    },
+    {
+      "id": "48",
+      "tajik": "вазнин",
+      "english": "heavy",
+      "level": "7"
+    },
+    {
+      "id": "49",
+      "tajik": "сабук",
+      "english": "light (not heavy)",
+      "level": "7"
+    },
+    {
+      "id": "50",
+      "tajik": "паст",
+      "english": "low",
+      "level": "7"
+    },
+    {
+      "id": "51",
+      "tajik": "кӯтоҳ",
+      "english": "short",
+      "level": "7"
+    },
+    {
+      "id": "52",
+      "tajik": "дуруст",
+      "english": "correct",
+      "level": "8"
+    },
+    {
+      "id": "53",
+      "tajik": "баланд",
+      "english": "high",
+      "level": "8"
+    },
+    {
+      "id": "54",
+      "tajik": "хом",
+      "english": "raw",
+      "level": "8"
+    },
+    {
+      "id": "55",
+      "tajik": "тез",
+      "english": "sharp, fast, spicy",
+      "level": "8"
+    },
+    {
+      "id": "56",
+      "tajik": "турш",
+      "english": "sour",
+      "level": "8"
+    },
+    {
+      "id": "57",
+      "tajik": "ғафс",
+      "english": "thick",
+      "level": "8"
+    },
+    {
+      "id": "58",
+      "tajik": "аз они кӣ",
+      "english": "whose",
+      "level": "8"
+    },
+    {
+      "id": "59",
+      "tajik": "хароб",
+      "english": "thin",
+      "level": "9"
+    },
+    {
+      "id": "60",
+      "tajik": "тар",
+      "english": "wet",
+      "level": "9"
+    },
+    {
+      "id": "61",
+      "tajik": "ҷавон",
+      "english": "young",
+      "level": "9"
+    },
+    {
+      "id": "62",
+      "tajik": "кӯр",
+      "english": "blind",
+      "level": "10"
+    },
+    {
+      "id": "63",
+      "tajik": "озод",
+      "english": "free (not bound)",
+      "level": "10"
+    },
+    {
+      "id": "64",
+      "tajik": "оддӣ",
+      "english": "ordinary",
+      "level": "10"
+    },
+    {
+      "id": "65",
+      "tajik": "ғамгин",
+      "english": "sad",
+      "level": "10"
+    },
+    {
+      "id": "66",
+      "tajik": "бемаза",
+      "english": "tasteless",
+      "level": "10"
+    },
+    {
+      "id": "67",
+      "tajik": "монда",
+      "english": "tired, exhausted",
+      "level": "10"
+    },
+    {
+      "id": "68",
+      "tajik": "васеъ",
+      "english": "wide",
+      "level": "10"
+    },
+    {
+      "id": "69",
+      "tajik": "равшан",
+      "english": "light, bright",
+      "level": "11"
+    },
+    {
+      "id": "70",
+      "tajik": "беранг",
+      "english": "pale",
+      "level": "11"
+    },
+    {
+      "id": "71",
+      "tajik": "шӯр",
+      "english": "salty",
+      "level": "11"
+    },
+    {
+      "id": "72",
+      "tajik": "монанд",
+      "english": "similar",
+      "level": "11"
+    },
+    {
+      "id": "73",
+      "tajik": "ҳамвор",
+      "english": "smooth",
+      "level": "11"
+    },
+    {
+      "id": "74",
+      "tajik": "пурзӯр",
+      "english": "strong",
+      "level": "11"
+    },
+    {
+      "id": "75",
+      "tajik": "бечора",
+      "english": "unfortunate",
+      "level": "11"
+    },
+    {
+      "id": "76",
+      "tajik": "кал",
+      "english": "bald",
+      "level": "12"
+    },
+    {
+      "id": "77",
+      "tajik": "пухта",
+      "english": "cooked",
+      "level": "12"
+    },
+    {
+      "id": "78",
+      "tajik": "охирин",
+      "english": "last",
+      "level": "12"
+    },
+    {
+      "id": "79",
+      "tajik": "аралаш",
+      "english": "mixed up",
+      "level": "12"
+    },
+    {
+      "id": "80",
+      "tajik": "серравған",
+      "english": "oily",
+      "level": "12"
+    },
+    {
+      "id": "81",
+      "tajik": "кушод",
+      "english": "open",
+      "level": "12"
+    },
+    {
+      "id": "82",
+      "tajik": "ҳама",
+      "english": "all",
+      "level": "13"
+    },
+    {
+      "id": "83",
+      "tajik": "ғазабнок",
+      "english": "angry",
+      "level": "13"
+    },
+    {
+      "id": "84",
+      "tajik": "бомаданият",
+      "english": "cultured",
+      "level": "13"
+    },
+    {
+      "id": "85",
+      "tajik": "хатарнок",
+      "english": "dangerous",
+      "level": "13"
+    },
+    {
+      "id": "86",
+      "tajik": "меҳрӯбон",
+      "english": "kind",
+      "level": "13"
+    },
+    {
+      "id": "87",
+      "tajik": "бемаданият",
+      "english": "uncultured",
+      "level": "13"
+    },
+    {
+      "id": "88",
+      "tajik": "боодоб",
+      "english": "civilized",
+      "level": "14"
+    },
+    {
+      "id": "89",
+      "tajik": "соф",
+      "english": "clear",
+      "level": "14"
+    },
+    {
+      "id": "90",
+      "tajik": "пӯшида",
+      "english": "closed",
+      "level": "14"
+    },
+    {
+      "id": "91",
+      "tajik": "ҳар",
+      "english": "each",
+      "level": "14"
+    },
+    {
+      "id": "92",
+      "tajik": "баробар",
+      "english": "equal",
+      "level": "14"
+    },
+    {
+      "id": "93",
+      "tajik": "аниқ",
+      "english": "exact",
+      "level": "14"
+    },
+    {
+      "id": "94",
+      "tajik": "бесабр",
+      "english": "impatient",
+      "level": "14"
+    },
+    {
+      "id": "95",
+      "tajik": "муҳим",
+      "english": "important",
+      "level": "14"
+    },
+    {
+      "id": "96",
+      "tajik": "танг",
+      "english": "narrow",
+      "level": "14"
+    },
+    {
+      "id": "97",
+      "tajik": "беқувват",
+      "english": "weak",
+      "level": "14"
+    },
+    {
+      "id": "98",
+      "tajik": "аъло",
+      "english": "excellent",
+      "level": "15"
+    },
+    {
+      "id": "99",
+      "tajik": "бовафо",
+      "english": "faithful",
+      "level": "15"
+    },
+    {
+      "id": "100",
+      "tajik": "беақл",
+      "english": "foolish",
+      "level": "15"
+    },
+    {
+      "id": "101",
+      "tajik": "асоснок",
+      "english": "grounded",
+      "level": "15"
+    },
+    {
+      "id": "102",
+      "tajik": "зарарнок",
+      "english": "harmful",
+      "level": "15"
+    },
+    {
+      "id": "103",
+      "tajik": "безарар",
+      "english": "harmless",
+      "level": "15"
+    },
+    {
+      "id": "104",
+      "tajik": "бемасъулият",
+      "english": "irresponsible",
+      "level": "15"
+    },
+    {
+      "id": "105",
+      "tajik": "даркорӣ",
+      "english": "necessary",
+      "level": "15"
+    },
+    {
+      "id": "106",
+      "tajik": "боадаб",
+      "english": "polite",
+      "level": "15"
+    },
+    {
+      "id": "107",
+      "tajik": "боҳунар",
+      "english": "skilled",
+      "level": "15"
+    },
+    {
+      "id": "108",
+      "tajik": "боақл",
+      "english": "smart",
+      "level": "15"
+    },
+    {
+      "id": "109",
+      "tajik": "бевафо",
+      "english": "unfaithful",
+      "level": "15"
+    },
+    {
+      "id": "110",
+      "tajik": "беасос",
+      "english": "unfounded",
+      "level": "15"
+    },
+    {
+      "id": "111",
+      "tajik": "беҳунар",
+      "english": "unskilled",
+      "level": "15"
+    },
+    {
+      "id": "112",
+      "tajik": "беҳуда",
+      "english": "useless",
+      "level": "15"
+    },
+    {
+      "id": "113",
+      "tajik": "бохабар",
+      "english": "informed",
+      "level": "16"
+    },
+    {
+      "id": "114",
+      "tajik": "бераҳм",
+      "english": "merciless",
+      "level": "16"
+    },
+    {
+      "id": "115",
+      "tajik": "пурсабр",
+      "english": "patient",
+      "level": "16"
+    },
+    {
+      "id": "116",
+      "tajik": "боқувват",
+      "english": "powerful",
+      "level": "16"
+    },
+    {
+      "id": "117",
+      "tajik": "беадаб",
+      "english": "rude",
+      "level": "16"
+    },
+    {
+      "id": "118",
+      "tajik": "бехабар",
+      "english": "uninformed",
+      "level": "16"
+    },
+    {
+      "id": "119",
+      "tajik": "бенамак",
+      "english": "unsalted",
+      "level": "16"
+    },
+    {
+      "id": "120",
+      "tajik": "иловагӣ",
+      "english": "additional",
+      "level": "17"
+    },
+    {
+      "id": "121",
+      "tajik": "ҳарсола",
+      "english": "annual",
+      "level": "17"
+    },
+    {
+      "id": "122",
+      "tajik": "пурнур",
+      "english": "bright",
+      "level": "17"
+    },
+    {
+      "id": "123",
+      "tajik": "ботаҷриба",
+      "english": "experienced",
+      "level": "17"
+    },
+    {
+      "id": "124",
+      "tajik": "тандуруст",
+      "english": "healthy",
+      "level": "17"
+    },
+    {
+      "id": "125",
+      "tajik": "бетаҷриба",
+      "english": "inexperienced",
+      "level": "17"
+    },
+    {
+      "id": "126",
+      "tajik": "беҳад",
+      "english": "limitless",
+      "level": "17"
+    },
+    {
+      "id": "127",
+      "tajik": "асосӣ",
+      "english": "main",
+      "level": "17"
+    },
+    {
+      "id": "128",
+      "tajik": "ҳармоҳа",
+      "english": "monthly",
+      "level": "17"
+    },
+    {
+      "id": "129",
+      "tajik": "манфӣ",
+      "english": "negative",
+      "level": "17"
+    },
+    {
+      "id": "130",
+      "tajik": "олӣ",
+      "english": "superb",
+      "level": "17"
+    },
+    {
+      "id": "131",
+      "tajik": "беодоб",
+      "english": "uncivilized",
+      "level": "17"
+    },
+    {
+      "id": "132",
+      "tajik": "беҳуш",
+      "english": "unconscious",
+      "level": "17"
+    },
+    {
+      "id": "133",
+      "tajik": "бутун",
+      "english": "whole",
+      "level": "17"
+    },
+    {
+      "id": "134",
+      "tajik": "номдор",
+      "english": "famous",
+      "level": "18"
+    },
+    {
+      "id": "135",
+      "tajik": "беайб",
+      "english": "faultless",
+      "level": "18"
+    },
+    {
+      "id": "136",
+      "tajik": "айбдор",
+      "english": "guilty",
+      "level": "18"
+    },
+    {
+      "id": "137",
+      "tajik": "бекор",
+      "english": "idle",
+      "level": "18"
+    },
+    {
+      "id": "138",
+      "tajik": "беном",
+      "english": "nameless",
+      "level": "18"
+    },
+    {
+      "id": "139",
+      "tajik": "барақс",
+      "english": "opposite",
+      "level": "18"
+    },
+    {
+      "id": "140",
+      "tajik": "шахсӣ",
+      "english": "personal",
+      "level": "18"
+    },
+    {
+      "id": "141",
+      "tajik": "имконпазир",
+      "english": "possible",
+      "level": "18"
+    },
+    {
+      "id": "142",
+      "tajik": "лоғар",
+      "english": "skinny",
+      "level": "18"
+    },
+    {
+      "id": "143",
+      "tajik": "хоболуд",
+      "english": "tired, sleepy",
+      "level": "18"
+    },
+    {
+      "id": "144",
+      "tajik": "бемеҳр",
+      "english": "unkind",
+      "level": "18"
+    },
+    {
+      "id": "145",
+      "tajik": "аслӣ",
+      "english": "authentic",
+      "level": "19"
+    },
+    {
+      "id": "146",
+      "tajik": "шикаста",
+      "english": "broken",
+      "level": "19"
+    },
+    {
+      "id": "147",
+      "tajik": "хушҳол",
+      "english": "cheerful",
+      "level": "19"
+    },
+    {
+      "id": "148",
+      "tajik": "гузаранда",
+      "english": "contagious",
+      "level": "19"
+    },
+    {
+      "id": "149",
+      "tajik": "давомнок",
+      "english": "continuous",
+      "level": "19"
+    },
+    {
+      "id": "150",
+      "tajik": "бешумор",
+      "english": "countless",
+      "level": "19"
+    },
+    {
+      "id": "151",
+      "tajik": "каҷ",
+      "english": "crooked",
+      "level": "19"
+    },
+    {
+      "id": "152",
+      "tajik": "шубҳанок",
+      "english": "doubtful",
+      "level": "19"
+    },
+    {
+      "id": "153",
+      "tajik": "бешубҳа",
+      "english": "doubtless",
+      "level": "19"
+    },
+    {
+      "id": "154",
+      "tajik": "босавод",
+      "english": "educated",
+      "level": "19"
+    },
+    {
+      "id": "155",
+      "tajik": "боинсоф",
+      "english": "fair",
+      "level": "19"
+    },
+    {
+      "id": "156",
+      "tajik": "сунъӣ",
+      "english": "fake",
+      "level": "19"
+    },
+    {
+      "id": "157",
+      "tajik": "бетараф",
+      "english": "impartial",
+      "level": "19"
+    },
+    {
+      "id": "158",
+      "tajik": "имконнопазир",
+      "english": "impossible",
+      "level": "19"
+    },
+    {
+      "id": "159",
+      "tajik": "анъанавӣ",
+      "english": "traditional",
+      "level": "19"
+    },
+    {
+      "id": "160",
+      "tajik": "бесавод",
+      "english": "uneducated",
+      "level": "19"
+    },
+    {
+      "id": "161",
+      "tajik": "беҳис",
+      "english": "unfeeling",
+      "level": "19"
+    },
+    {
+      "id": "162",
+      "tajik": "беҳамто",
+      "english": "unique",
+      "level": "19"
+    },
+    {
+      "id": "163",
+      "tajik": "беғам",
+      "english": "untroubled",
+      "level": "19"
+    },
+    {
+      "id": "164",
+      "tajik": "бепоён",
+      "english": "bottomless",
+      "level": "20"
+    },
+    {
+      "id": "165",
+      "tajik": "беканор",
+      "english": "boundless",
+      "level": "20"
+    },
+    {
+      "id": "166",
+      "tajik": "раҳмдил",
+      "english": "compassionate",
+      "level": "20"
+    },
+    {
+      "id": "167",
+      "tajik": "бовиҷдон",
+      "english": "conscientious",
+      "level": "20"
+    },
+    {
+      "id": "168",
+      "tajik": "беобрӯ",
+      "english": "disgraced",
+      "level": "20"
+    },
+    {
+      "id": "169",
+      "tajik": "беномус",
+      "english": "dishonourable",
+      "level": "20"
+    },
+    {
+      "id": "170",
+      "tajik": "беназир",
+      "english": "exceptional",
+      "level": "20"
+    },
+    {
+      "id": "171",
+      "tajik": "беасар",
+      "english": "ineffective",
+      "level": "20"
+    },
+    {
+      "id": "172",
+      "tajik": "серҳаракат",
+      "english": "lively",
+      "level": "20"
+    },
+    {
+      "id": "173",
+      "tajik": "беҳаракат",
+      "english": "motionless",
+      "level": "20"
+    },
+    {
+      "id": "174",
+      "tajik": "асроромез",
+      "english": "mysterious",
+      "level": "20"
+    },
+    {
+      "id": "175",
+      "tajik": "ҳосилнок",
+      "english": "productive",
+      "level": "20"
+    },
+    {
+      "id": "176",
+      "tajik": "бообрӯ",
+      "english": "respected",
+      "level": "20"
+    },
+    {
+      "id": "177",
+      "tajik": "масъулиятнок",
+      "english": "responsible",
+      "level": "20"
+    },
+    {
+      "id": "178",
+      "tajik": "шармдор",
+      "english": "shameful",
+      "level": "20"
+    },
+    {
+      "id": "179",
+      "tajik": "бешарм",
+      "english": "shameless",
+      "level": "20"
+    },
+    {
+      "id": "180",
+      "tajik": "бедоғ",
+      "english": "spotless",
+      "level": "20"
+    },
+    {
+      "id": "181",
+      "tajik": "бомуваффақият",
+      "english": "successful",
+      "level": "20"
+    },
+    {
+      "id": "182",
+      "tajik": "бадбахт",
+      "english": "unlucky",
+      "level": "20"
+    },
+    {
+      "id": "183",
+      "tajik": "беҳосил",
+      "english": "unproductive",
+      "level": "20"
+    },
+    {
+      "id": "184",
+      "tajik": "беқайд",
+      "english": "unregistered",
+      "level": "20"
+    },
+    {
+      "id": "185",
+      "tajik": "бемуваффақият",
+      "english": "unsuccessful",
+      "level": "20"
+    },
+    {
+      "id": "186",
+      "tajik": "бебаҳо",
+      "english": "worthless",
+      "level": "20"
+    }
+  ]
+}

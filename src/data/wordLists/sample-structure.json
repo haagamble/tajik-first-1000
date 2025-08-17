@@ -1,0 +1,32 @@
+{
+    "id": "basic-greetings",
+    "name": "Basic Greetings",
+    "description": "Essential greetings and common phrases for everyday conversation",
+    "words": [
+        {
+            "id": "1",
+            "tajik": "Салом",
+            "english": "Hello",
+            "transliteration": "Salom",
+            "category": "greetings",
+            "level": "1"
+        },
+        {
+            "id": "2",
+            "tajik": "Хайр",
+            "english": "Goodbye",
+            "transliteration": "Khayr",
+            "category": "greetings",
+            "level": "1"
+        },
+        {
+            "id": "3",
+            "tajik": "Рахмат",
+            "english": "Thank you",
+            "transliteration": "Rahmat",
+            "category": "politeness",
+            "level": "2"
+        }
+    ]
+}
+
