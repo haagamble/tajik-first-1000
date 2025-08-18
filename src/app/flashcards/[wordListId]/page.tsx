@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { wordLists } from '../../../data/wordLists';
 import FlashcardsGame from './FlashcardsGame';
 
@@ -17,9 +18,9 @@ export default async function FlashcardsPage({ params }: { params: Promise<{ wor
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
                     <h1 className="text-2xl font-bold text-gray-800 mb-4">Word List Not Found</h1>
-                    <a href="/" className="text-blue-600 hover:underline">
+                    <Link href="/" className="text-blue-600 hover:underline">
                         ← Back to Home
-                    </a>
+                    </Link>
                 </div>
             </div>
         );

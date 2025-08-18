@@ -120,7 +120,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
                 <div className="max-w-2xl mx-auto text-center">
                     <h1 className="text-3xl font-bold text-green-800 mb-4">🎉 Congratulations!</h1>
                     <p className="text-lg text-gray-700 mb-6">
-                        You've learned all {learnedCards.length} words!
+                        You&apos;ve learned all {learnedCards.length} words!
                     </p>
                     <Link href="/" className="text-blue-600 hover:underline">
                         ← Back to Home

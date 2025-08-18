@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { VocabWord } from '../../../types/vocab';
 
@@ -28,18 +28,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
     const [moves, setMoves] = useState(0);
     const [mounted, setMounted] = useState(false);
 
-    // Prevent hydration issues and auto-start game
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (mounted) {
-            initializeGame();
-        }
-    }, [mounted]);
-
-    const initializeGame = () => {
+    const initializeGame = useCallback(() => {
         // Shuffle words and take only 6 pairs
         const shuffledWords = [...wordList.words].sort(() => Math.random() - 0.5);
         const selectedWords = shuffledWords.slice(0, 6);
@@ -76,7 +65,18 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
         setFlippedCards([]);
         setMatchedPairs(0);
         setMoves(0);
-    };
+    }, [wordList.words]);
+
+    // Prevent hydration issues and auto-start game
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (mounted) {
+            initializeGame();
+        }
+    }, [mounted, initializeGame]);
 
     const handleCardClick = (clickedCard: Card) => {
         if (clickedCard.isFlipped || clickedCard.isMatched || flippedCards.length >= 2) {

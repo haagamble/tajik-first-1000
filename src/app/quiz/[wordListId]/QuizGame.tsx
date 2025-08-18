@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { VocabWord } from '../../../types/vocab';
 import { selectWordsForQuiz } from '../../../utils/wordSelection';
@@ -28,20 +28,7 @@ export default function QuizGame({ wordList }: QuizGameProps) {
     const [quizCompleted, setQuizCompleted] = useState(false);
     const [mounted, setMounted] = useState(false);
 
-    // Prevent hydration issues by only rendering after mount
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!mounted) return;
-
-        // Select 10 random words for the quiz
-        const selectedWords = selectWordsForQuiz(wordList.words);
-        initializeQuiz(selectedWords);
-    }, [wordList.words, mounted]);
-
-    const initializeQuiz = (words: VocabWord[]) => {
+    const initializeQuiz = useCallback((words: VocabWord[]) => {
         const quizQuestions: Question[] = words.map(word => {
             // Get 3 random wrong answers from the same word list
             const wrongAnswers = wordList.words
@@ -63,7 +50,20 @@ export default function QuizGame({ wordList }: QuizGameProps) {
         // Shuffle questions
         const shuffledQuestions = quizQuestions.sort(() => Math.random() - 0.5);
         setQuestions(shuffledQuestions);
-    };
+    }, [wordList.words]);
+
+    // Prevent hydration issues by only rendering after mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+
+        // Select 10 random words for the quiz
+        const selectedWords = selectWordsForQuiz(wordList.words);
+        initializeQuiz(selectedWords);
+    }, [wordList.words, mounted, initializeQuiz]);
 
     const handleAnswerSelect = (answer: string) => {
         if (isAnswered) return;

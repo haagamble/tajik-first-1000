@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { VocabWord } from '../../../types/vocab';
-import { selectWordsForWordSearch } from '../../../utils/wordSelection';
 
 interface GridCell {
     letter: string;
@@ -38,27 +37,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
     const [selectionDirection, setSelectionDirection] = useState<number[] | null>(null);
     const [mounted, setMounted] = useState(false);
 
-    // Prevent hydration issues by only rendering after mount
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!mounted) return;
-
-        // Filter words: no spaces, max 10 letters, then select up to 15 random words
-        const validWords = wordList.words.filter(word =>
-            word.tajik.length <= 10 &&
-            !word.tajik.includes(' ')
-        );
-
-        // Select up to 15 random words for word search
-        const shuffledWords = [...validWords].sort(() => Math.random() - 0.5);
-        const selectedWords = shuffledWords.slice(0, 15);
-        initializeGrid(selectedWords);
-    }, [wordList.words, mounted]);
-
-    const initializeGrid = (wordList: VocabWord[]) => {
+    const initializeGrid = useCallback((wordList: VocabWord[]) => {
         // Create empty grid
         const newGrid: GridCell[][] = [];
         for (let i = 0; i < gridSize; i++) {
@@ -147,7 +126,28 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
 
         // Only show words that were successfully placed in the grid
         setWords(successfullyPlacedWords);
-    };
+    }, [gridSize]);
+
+
+    // Prevent hydration issues by only rendering after mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+
+        // Filter words: no spaces, max 10 letters, then select up to 15 random words
+        const validWords = wordList.words.filter(word =>
+            word.tajik.length <= 10 &&
+            !word.tajik.includes(' ')
+        );
+
+        // Select up to 15 random words for word search
+        const shuffledWords = [...validWords].sort(() => Math.random() - 0.5);
+        const selectedWords = shuffledWords.slice(0, 15);
+        initializeGrid(selectedWords);
+    }, [wordList.words, mounted, initializeGrid]);
 
     const canPlaceWord = (grid: GridCell[][], word: string, row: number, col: number, direction: number[]): boolean => {
         for (let i = 0; i < word.length; i++) {
@@ -320,27 +320,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         initializeGrid(selectedWords);
     };
 
-    // Generate unique colors for each found word
-    const getWordColor = (wordIndex: number) => {
-        const colors = [
-            'bg-red-200 border-red-500',
-            'bg-blue-200 border-blue-500',
-            'bg-green-200 border-green-500',
-            'bg-yellow-200 border-yellow-500',
-            'bg-purple-200 border-purple-500',
-            'bg-pink-200 border-pink-500',
-            'bg-indigo-200 border-indigo-500',
-            'bg-orange-200 border-orange-500',
-            'bg-teal-200 border-teal-500',
-            'bg-cyan-200 border-cyan-500',
-            'bg-lime-200 border-lime-500',
-            'bg-amber-200 border-amber-500',
-            'bg-emerald-200 border-emerald-500',
-            'bg-violet-200 border-violet-500',
-            'bg-rose-200 border-rose-500'
-        ];
-        return colors[wordIndex % colors.length];
-    };
+
 
     // Calculate oriented rounded rectangle aligned with the word direction
     const getWordOrientedRect = (positions: number[][]) => {
