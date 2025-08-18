@@ -21,8 +21,16 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
     const [reviewCards, setReviewCards] = useState<VocabWord[]>([]);
     const [learnedCards, setLearnedCards] = useState<VocabWord[]>([]);
     const [currentStack, setCurrentStack] = useState<CardStack>('study');
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration issues by only rendering after mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
+        if (!mounted) return;
+
         // Randomize the order of words when starting
         const shuffled = [...wordList.words].sort(() => Math.random() - 0.5);
         setStudyCards(shuffled);
@@ -30,7 +38,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         setLearnedCards([]);
         setCurrentIndex(0);
         setIsFlipped(false);
-    }, [wordList.words]);
+    }, [wordList.words, mounted]);
 
     // Get current cards based on active stack
     const getCurrentCards = () => {
@@ -92,7 +100,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         setIsFlipped(false);
     };
 
-    if (currentCards.length === 0 && currentStack === 'study' && studyCards.length === 0 && reviewCards.length === 0) {
+    if (!mounted || (currentCards.length === 0 && currentStack === 'study' && studyCards.length === 0 && reviewCards.length === 0)) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">

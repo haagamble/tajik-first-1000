@@ -26,12 +26,20 @@ export default function QuizGame({ wordList }: QuizGameProps) {
     const [isAnswered, setIsAnswered] = useState(false);
     const [score, setScore] = useState(0);
     const [quizCompleted, setQuizCompleted] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration issues by only rendering after mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
+        if (!mounted) return;
+
         // Select 10 random words for the quiz
         const selectedWords = selectWordsForQuiz(wordList.words);
         initializeQuiz(selectedWords);
-    }, [wordList.words]);
+    }, [wordList.words, mounted]);
 
     const initializeQuiz = (words: VocabWord[]) => {
         const quizQuestions: Question[] = words.map(word => {
@@ -89,7 +97,7 @@ export default function QuizGame({ wordList }: QuizGameProps) {
         initializeQuiz(selectedWords);
     };
 
-    if (questions.length === 0) {
+    if (!mounted || questions.length === 0) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">

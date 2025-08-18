@@ -36,8 +36,16 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
     const [isDragging, setIsDragging] = useState(false);
     const [gridSize] = useState(10);
     const [selectionDirection, setSelectionDirection] = useState<number[] | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration issues by only rendering after mount
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
+        if (!mounted) return;
+
         // Filter words: no spaces, max 10 letters, then select up to 15 random words
         const validWords = wordList.words.filter(word =>
             word.tajik.length <= 10 &&
@@ -48,7 +56,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         const shuffledWords = [...validWords].sort(() => Math.random() - 0.5);
         const selectedWords = shuffledWords.slice(0, 15);
         initializeGrid(selectedWords);
-    }, [wordList.words]);
+    }, [wordList.words, mounted]);
 
     const initializeGrid = (wordList: VocabWord[]) => {
         // Create empty grid
@@ -386,7 +394,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         };
     };
 
-    if (words.length === 0) {
+    if (!mounted || words.length === 0) {
         return (
             <div className="gradient-bg p-2 sm:p-4">
                 <div className="max-w-2xl mx-auto text-center">
@@ -432,15 +440,27 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                                         width: 'min(90vw, 350px)',
                                         height: 'min(90vw, 350px)',
                                         maxWidth: '100%',
-                                        maxHeight: '100%'
+                                        maxHeight: '100%',
+                                        touchAction: 'none'
                                     }}
                                     onMouseLeave={() => {
                                         setIsDragging(false);
                                         setSelectedCells([]);
                                     }}
-                                    onTouchStart={(e) => e.preventDefault()}
-                                    onTouchMove={(e) => e.preventDefault()}
-                                    onTouchEnd={(e) => e.preventDefault()}
+                                    onMouseUp={handleMouseUp}
+                                    onTouchEnd={handleMouseUp}
+                                    onTouchMove={(e) => {
+                                        e.preventDefault();
+                                        const touch = e.touches[0];
+                                        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+                                        if (element && element.closest('[data-cell]')) {
+                                            const row = parseInt(element.getAttribute('data-row') || '0');
+                                            const col = parseInt(element.getAttribute('data-col') || '0');
+                                            if (!isNaN(row) && !isNaN(col)) {
+                                                handleMouseEnter(row, col);
+                                            }
+                                        }
+                                    }}
                                 >
                                     {grid.map((row, rowIndex) =>
                                         row.map((cell, colIndex) => (
@@ -452,29 +472,13 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                                                     }`}
                                                 style={{
                                                     aspectRatio: '1',
-                                                    fontSize: 'clamp(18px, 5vw, 22px)'
+                                                    fontSize: 'clamp(18px, 5vw, 22px)',
+                                                    userSelect: 'none',
+                                                    touchAction: 'none'
                                                 }}
                                                 onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
                                                 onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
-                                                onMouseUp={handleMouseUp}
-                                                onTouchStart={(e) => {
-                                                    e.preventDefault();
-                                                    handleMouseDown(rowIndex, colIndex);
-                                                }}
-                                                onTouchMove={(e) => {
-                                                    e.preventDefault();
-                                                    const touch = e.touches[0];
-                                                    const element = document.elementFromPoint(touch.clientX, touch.clientY);
-                                                    if (element && element.closest('[data-row][data-col]')) {
-                                                        const row = parseInt(element.getAttribute('data-row') || '0');
-                                                        const col = parseInt(element.getAttribute('data-col') || '0');
-                                                        handleMouseEnter(row, col);
-                                                    }
-                                                }}
-                                                onTouchEnd={(e) => {
-                                                    e.preventDefault();
-                                                    handleMouseUp();
-                                                }}
+                                                onTouchStart={() => handleMouseDown(rowIndex, colIndex)}
                                                 data-row={rowIndex}
                                                 data-col={colIndex}
                                                 data-cell={`${rowIndex},${colIndex}`}

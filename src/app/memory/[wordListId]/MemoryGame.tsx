@@ -26,7 +26,18 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
     const [flippedCards, setFlippedCards] = useState<Card[]>([]);
     const [matchedPairs, setMatchedPairs] = useState(0);
     const [moves, setMoves] = useState(0);
-    const [gameStarted, setGameStarted] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration issues and auto-start game
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (mounted) {
+            initializeGame();
+        }
+    }, [mounted]);
 
     const initializeGame = () => {
         // Shuffle words and take only 6 pairs
@@ -65,7 +76,6 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
         setFlippedCards([]);
         setMatchedPairs(0);
         setMoves(0);
-        setGameStarted(true);
     };
 
     const handleCardClick = (clickedCard: Card) => {
@@ -123,8 +133,18 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
 
     const isGameComplete = matchedPairs === 6;
 
+    if (!mounted || cards.length === 0) {
+        return (
+            <div className="gradient-bg p-4">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Loading...</h1>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4">
+        <div className="gradient-bg p-4">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6">
                     <h1 className="text-3xl font-bold text-gray-800 mb-2">🧠 Memory Game</h1>
@@ -134,78 +154,57 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
                     </Link>
                 </div>
 
-                {!gameStarted ? (
-                    <div className="text-center">
-                        <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                                Match the Tajik words with their English translations!
-                            </h3>
-                            <p className="text-gray-600 mb-6">
-                                Find 6 pairs by flipping cards. Click two cards to see if they match.
-                            </p>
-                            <button
-                                onClick={initializeGame}
-                                className="px-6 py-3 bg-purple-500 text-white rounded-lg font-medium hover:bg-purple-600 shadow-lg transition-all duration-300"
-                            >
-                                Start Game
-                            </button>
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+                    <div className="flex justify-between items-center text-center">
+                        <div>
+                            <div className="text-2xl font-bold text-purple-600">{moves}</div>
+                            <div className="text-sm text-gray-600">Moves</div>
                         </div>
+                        <div>
+                            <div className="text-2xl font-bold text-green-600">{matchedPairs}/6</div>
+                            <div className="text-sm text-gray-600">Pairs Found</div>
+                        </div>
+                        <button
+                            onClick={resetGame}
+                            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                        >
+                            New Game
+                        </button>
                     </div>
-                ) : (
-                    <>
-                        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                            <div className="flex justify-between items-center text-center">
-                                <div>
-                                    <div className="text-2xl font-bold text-purple-600">{moves}</div>
-                                    <div className="text-sm text-gray-600">Moves</div>
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-green-600">{matchedPairs}/6</div>
-                                    <div className="text-sm text-gray-600">Pairs Found</div>
-                                </div>
-                                <button
-                                    onClick={resetGame}
-                                    className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
-                                >
-                                    New Game
-                                </button>
-                            </div>
-                        </div>
+                </div>
 
-                        {isGameComplete && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 text-center">
-                                <h3 className="text-xl font-bold mb-2">🎉 Congratulations!</h3>
-                                <p>You completed the game in {moves} moves!</p>
-                            </div>
-                        )}
-
-                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                            {cards.map((card) => (
-                                <div
-                                    key={card.id}
-                                    onClick={() => handleCardClick(card)}
-                                    className={`
-                                        aspect-square bg-white rounded-lg shadow-lg transition-all duration-300 cursor-pointer
-                                        flex items-center justify-center p-4 text-center
-                                        ${card.isFlipped || card.isMatched ? 'shadow-xl' : 'hover:shadow-xl'}
-                                        ${card.isMatched ? 'bg-green-100 border-2 border-green-400' : ''}
-                                        ${flippedCards.includes(card) && !card.isMatched ? 'bg-blue-100 border-2 border-blue-400' : ''}
-                                    `}
-                                >
-                                    {card.isFlipped || card.isMatched ? (
-                                        <div className="w-full">
-                                            <div className={`text-lg font-semibold ${card.type === 'tajik' ? 'text-purple-700' : 'text-blue-700'}`}>
-                                                {card.text}
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="text-4xl">❓</div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </>
+                {isGameComplete && (
+                    <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 text-center">
+                        <h3 className="text-xl font-bold mb-2">🎉 Congratulations!</h3>
+                        <p>You completed the game in {moves} moves!</p>
+                    </div>
                 )}
+
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                    {cards.map((card) => (
+                        <div
+                            key={card.id}
+                            onClick={() => handleCardClick(card)}
+                            className={`
+                                h-20 sm:h-24 bg-white rounded-lg shadow-lg transition-all duration-300 cursor-pointer
+                                flex items-center justify-center p-3 text-center
+                                ${card.isFlipped || card.isMatched ? 'shadow-xl' : 'hover:shadow-xl'}
+                                ${card.isMatched ? 'bg-green-100 border-2 border-green-400' : ''}
+                                ${flippedCards.includes(card) && !card.isMatched ? 'bg-blue-100 border-2 border-blue-400' : ''}
+                            `}
+                        >
+                            {card.isFlipped || card.isMatched ? (
+                                <div className="w-full">
+                                    <div className={`text-sm sm:text-base font-semibold ${card.type === 'tajik' ? 'text-purple-700' : 'text-blue-700'}`}>
+                                        {card.text}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="text-2xl sm:text-3xl">❓</div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
