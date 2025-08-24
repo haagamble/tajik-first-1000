@@ -10,8 +10,8 @@ export interface VocabWord {
 export interface WordList {
     id: string;
     name: string;
-    description: string;
-    words: VocabWord[];
+    description?: string; // Made optional since we're simplifying
+    words: VocabWord[] | string[][]; // Support both old and new formats
     // Removed difficulty field - using individual word levels instead
 }
 

@@ -23,6 +23,7 @@ interface WordSearchGameProps {
     wordList: {
         id: string;
         name: string;
+        description?: string;
         words: VocabWord[];
     };
 }

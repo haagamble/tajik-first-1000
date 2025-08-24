@@ -17,6 +17,7 @@ interface MemoryGameProps {
     wordList: {
         id: string;
         name: string;
+        description?: string;
         words: VocabWord[];
     };
 }

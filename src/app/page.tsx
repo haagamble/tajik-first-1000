@@ -2,16 +2,19 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { wordLists } from '../data/wordLists';
+import { levelWordLists, topicWordLists } from '../data/wordLists/index';
 import { WordList } from '../types/vocab';
 
 export default function HomePage() {
   const [selectedWordList, setSelectedWordList] = useState<WordList | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeTab, setActiveTab] = useState<'levels' | 'topics'>('levels');
 
-  const filteredWordLists = wordLists.filter(wordList => {
+  const currentWordLists = activeTab === 'levels' ? levelWordLists : topicWordLists;
+
+  const filteredWordLists = currentWordLists.filter((wordList: WordList) => {
     const matchesSearch = wordList.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      wordList.description.toLowerCase().includes(searchTerm.toLowerCase());
+      (wordList.description?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false);
     return matchesSearch;
   });
 
@@ -58,15 +61,47 @@ export default function HomePage() {
         {/* Word List Selection */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-            Select a Word List ({filteredWordLists.length} available)
+            Select a Word List
           </h2>
 
-          {/* Search Controls */}
+          {/* Tab Navigation */}
           <div className="flex justify-center mb-6">
+            <div className="bg-white rounded-lg p-1 shadow-md inline-flex">
+              <button
+                onClick={() => {
+                  setActiveTab('levels');
+                  setSelectedWordList(null);
+                  setSearchTerm('');
+                }}
+                className={`px-6 py-2 rounded-md transition-all font-medium ${activeTab === 'levels'
+                    ? 'bg-blue-500 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-800'
+                  }`}
+              >
+                Levels
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab('topics');
+                  setSelectedWordList(null);
+                  setSearchTerm('');
+                }}
+                className={`px-6 py-2 rounded-md transition-all font-medium ${activeTab === 'topics'
+                    ? 'bg-blue-500 text-white shadow-sm'
+                    : 'text-gray-600 hover:text-gray-800'
+                  }`}
+              >
+                Topics
+              </button>
+            </div>
+          </div>
+
+          {/* Search Controls */}
+          <div className="flex justify-center mb-4">
             <div className="relative max-w-md w-full">
               <input
                 type="text"
-                placeholder="Search word lists..."
+                placeholder={`Search ${activeTab}...`}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -77,28 +112,42 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Word List Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredWordLists.map((wordList) => (
-              <div
-                key={wordList.id}
-                onClick={() => setSelectedWordList(wordList)}
-                className={`p-4 rounded-lg border-2 transition-all text-left cursor-pointer ${selectedWordList?.id === wordList.id
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
-                  }`}
-              >
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">{wordList.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{wordList.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-500">
-                      {wordList.words.length} words
-                    </span>
+          {/* Selected count display */}
+          <p className="text-center text-gray-600 mb-4">
+            {filteredWordLists.length} {activeTab === 'levels' ? 'levels' : 'topics'} available
+            {selectedWordList && (
+              <span className="text-blue-600 font-medium">
+                {' '} • <strong>{selectedWordList.name}</strong> selected
+              </span>
+            )}
+          </p>
+
+          {/* Word List Grid - Compact design for mobile */}
+          <div className="bg-white rounded-lg shadow-lg p-4 max-h-80 overflow-y-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+              {filteredWordLists.map((wordList: WordList) => (
+                <button
+                  key={wordList.id}
+                  onClick={() => setSelectedWordList(wordList)}
+                  className={`p-3 rounded-lg border-2 transition-all text-center text-sm font-medium min-h-[4rem] flex flex-col justify-center ${selectedWordList?.id === wordList.id
+                      ? 'border-blue-500 bg-blue-50 text-blue-700'
+                      : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700'
+                    }`}
+                >
+                  <div className="font-semibold mb-1">
+                    {activeTab === 'levels'
+                      ? wordList.name
+                      : wordList.name.replace(/\d+$/, '').replace(/^\w+$/, (match: string) =>
+                        match.charAt(0).toUpperCase() + match.slice(1)
+                      )
+                    }
                   </div>
-                </div>
-              </div>
-            ))}
+                  <div className="text-xs text-gray-500">
+                    {wordList.words.length} words
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -129,25 +178,33 @@ export default function HomePage() {
 
         {/* Activities */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Choose an Activity
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {!selectedWordList && (
+            <p className="text-center text-gray-500 mb-4 text-sm">
+              👆 Select a word list above to enable activities
+            </p>
+          )}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {activities.map((activity) => (
               <Link
                 key={activity.name}
                 href={activity.href}
-                className={`block p-6 bg-white rounded-lg shadow-lg transition-all ${activity.disabled
+                className={`block p-4 bg-white rounded-lg shadow-md transition-all text-center ${activity.disabled
                   ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:shadow-xl hover:-translate-y-1'
+                  : 'hover:shadow-lg hover:-translate-y-1 hover:bg-blue-50'
                   }`}
+                onClick={(e) => {
+                  if (activity.disabled) {
+                    e.preventDefault();
+                  }
+                }}
               >
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {activity.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">{activity.description}</p>
-                </div>
+                <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                  {activity.name}
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">{activity.description}</p>
               </Link>
             ))}
           </div>

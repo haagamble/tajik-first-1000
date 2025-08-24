@@ -8,6 +8,7 @@ interface FlashcardsGameProps {
     wordList: {
         id: string;
         name: string;
+        description?: string;
         words: VocabWord[];
     };
 }

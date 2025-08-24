@@ -15,6 +15,7 @@ interface QuizGameProps {
     wordList: {
         id: string;
         name: string;
+        description?: string;
         words: VocabWord[];
     };
 }

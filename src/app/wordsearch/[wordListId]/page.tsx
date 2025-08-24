@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { wordLists } from '../../../data/wordLists';
+import { normalizeWordList } from '../../../utils/wordListUtils';
 import WordSearchGame from './WordSearchGame';
 
 // Required for static export
@@ -11,7 +12,8 @@ export async function generateStaticParams() {
 
 export default async function WordSearchPage({ params }: { params: Promise<{ wordListId: string }> }) {
     const { wordListId } = await params;
-    const wordList = wordLists.find(wl => wl.id === wordListId);
+    const rawWordList = wordLists.find(wl => wl.id === wordListId);
+    const wordList = rawWordList ? normalizeWordList(rawWordList) : null;
 
     if (!wordList) {
         return (
