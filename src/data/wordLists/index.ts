@@ -84,7 +84,7 @@ export const levelWordLists: WordList[] = [
     level17 as unknown as WordList,
     level18 as unknown as WordList,
     level19 as unknown as WordList,
-    level20 as unknown as WordList
+    level20 as unknown as WordList,
 ];
 
 // Topic-based word lists (sorted alphabetically)
