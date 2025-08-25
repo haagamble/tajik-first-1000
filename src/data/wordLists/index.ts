@@ -37,54 +37,20 @@ import verbs1 from './verbs1.json';
 import verbs2 from './verbs2.json';
 import verbs3 from './verbs-3.json';
 
-// Level-based word lists
+// Level-based word lists - testing with fewer imports to isolate issue
 import level01 from './level01.json';
 import level02 from './level02.json';
 import level03 from './level03.json';
-import level04 from './level04.json';
-import level05 from './level05.json';
-import level06 from './level06.json';
-import level07 from './level07.json';
-import level08 from './level08.json';
-import level09 from './level09.json';
-import level10 from './level10.json';
-import level11 from './level11.json';
-import level12 from './level12.json';
-import level13 from './level13.json';
-import level14 from './level14.json';
-import level15 from './level15.json';
-import level16 from './level16.json';
-import level17 from './level17.json';
-import level18 from './level18.json';
-import level19 from './level19.json';
-import level20 from './level20.json';
 
 // ============================================================================
 // CATEGORIZED WORD LISTS
 // ============================================================================
 
-// Level-based word lists (sorted by level)
+// Level-based word lists (testing with 3 levels)
 export const levelWordLists: WordList[] = [
     level01 as unknown as WordList,
     level02 as unknown as WordList,
     level03 as unknown as WordList,
-    level04 as unknown as WordList,
-    level05 as unknown as WordList,
-    level06 as unknown as WordList,
-    level07 as unknown as WordList,
-    level08 as unknown as WordList,
-    level09 as unknown as WordList,
-    level10 as unknown as WordList,
-    level11 as unknown as WordList,
-    level12 as unknown as WordList,
-    level13 as unknown as WordList,
-    level14 as unknown as WordList,
-    level15 as unknown as WordList,
-    level16 as unknown as WordList,
-    level17 as unknown as WordList,
-    level18 as unknown as WordList,
-    level19 as unknown as WordList,
-    level20 as unknown as WordList,
 ];
 
 // Topic-based word lists (sorted alphabetically)

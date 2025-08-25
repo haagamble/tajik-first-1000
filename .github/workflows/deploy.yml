@@ -32,16 +32,6 @@ jobs:
         
       - name: Build with Next.js
         run: npm run build
-        
-      - name: List all directories after build
-        run: |
-          echo "Current directory contents:"
-          ls -la
-          echo "Looking for any build output directories:"
-          find . -name "out" -type d 2>/dev/null || echo "No 'out' directory found"
-          find . -name "dist" -type d 2>/dev/null || echo "No 'dist' directory found"
-          find . -name "build" -type d 2>/dev/null || echo "No 'build' directory found"
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
