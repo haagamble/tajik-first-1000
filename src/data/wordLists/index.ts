@@ -37,20 +37,34 @@ import verbs1 from './verbs1.json';
 import verbs2 from './verbs2.json';
 import verbs3 from './verbs-3.json';
 
-// Level-based word lists - testing with fewer imports to isolate issue
+// Level-based word lists - adding back in batches
 import level01 from './level01.json';
 import level02 from './level02.json';
 import level03 from './level03.json';
+import level04 from './level04.json';
+import level05 from './level05.json';
+import level06 from './level06.json';
+import level07 from './level07.json';
+import level08 from './level08.json';
+import level09 from './level09.json';
+import level10 from './level10.json';
 
 // ============================================================================
 // CATEGORIZED WORD LISTS
 // ============================================================================
 
-// Level-based word lists (testing with 3 levels)
+// Level-based word lists (testing with 10 levels)
 export const levelWordLists: WordList[] = [
     level01 as unknown as WordList,
     level02 as unknown as WordList,
     level03 as unknown as WordList,
+    level04 as unknown as WordList,
+    level05 as unknown as WordList,
+    level06 as unknown as WordList,
+    level07 as unknown as WordList,
+    level08 as unknown as WordList,
+    level09 as unknown as WordList,
+    level10 as unknown as WordList,
 ];
 
 // Topic-based word lists (sorted alphabetically)
