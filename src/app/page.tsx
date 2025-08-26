@@ -49,8 +49,8 @@ export default function HomePage() {
     <div className="gradient-bg p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-3 sm:mb-6">
-          <h1 className="text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+        <div className="text-center mb-3 sm:mb-5">
+          <h1 className="text-4xl font-bold text-gray-800 mb-3">
             🇹🇯 Tajik First 1000
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -59,13 +59,13 @@ export default function HomePage() {
         </div>
 
         {/* Word List Selection */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-4 text-center">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-3 text-center">
             Select a Word List
           </h2>
 
           {/* Tab Navigation */}
-          <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="flex justify-center mb-4">
             <div className="bg-white rounded-lg p-1 shadow-md inline-flex">
               <button
                 onClick={() => {
@@ -123,7 +123,7 @@ export default function HomePage() {
           </p>
 
           {/* Word List Grid - Compact design for mobile */}
-          <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4 max-h-60 sm:max-h-80 overflow-y-auto">
+          <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4 max-h-60 sm:max-h-70 overflow-y-auto">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
               {filteredWordLists.map((wordList: WordList) => (
                 <button
