@@ -1,4 +1,4 @@
-# Tajik Vocabulary Practice App
+# Tajik Vocabulary Practice App for the first 100 words
 
 An interactive web application for learning Tajik vocabulary through various engaging activities including flashcards, memory games, word search puzzles, and quizzes.
 
@@ -23,7 +23,7 @@ An interactive web application for learning Tajik vocabulary through various eng
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
-cd tajik-vocab-app
+cd tajik-first-1000
 ```
 
 2. Install dependencies:
@@ -237,4 +237,4 @@ If you have questions or need help:
 
 ---
 
-Happy learning! 🎓📚
+Happy language learning! 🎓📚
