@@ -391,9 +391,9 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                 {/* Header */}
                 <div className="text-center mb-4 sm:mb-6">
                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">🔍 Word Search</h1>
-                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                    {/* <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                         Find Tajik words hidden in the grid
-                    </p>
+                    </p> */}
                     <Link href="/" className="text-blue-600 hover:underline text-sm">
                         ← Back to Home
                     </Link>
@@ -514,13 +514,13 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                         {/* Words to Find */}
                         <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
                             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Words to Find:</h3>
-                            <div className="grid grid-cols-2 sm:grid-cols-1 gap-2">
+                            <div className="grid grid-cols-2 sm:grid-cols-1 gap-1">
                                 {words.map((word) => {
                                     const isFound = foundWords.some(fw => fw.word === word.tajik);
                                     return (
                                         <div
                                             key={word.id}
-                                            className={`p-2 rounded text-sm ${isFound ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
+                                            className={`p-1 rounded text-sm ${isFound ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
                                                 }`}
                                         >
                                             <div className="font-medium">{word.tajik}</div>
@@ -531,7 +531,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                         </div>
 
                         {/* Found Words */}
-                        <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
+                        {/* <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
                             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                                 Found: {foundWords.length}/{words.length}
                             </h3>
@@ -543,7 +543,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

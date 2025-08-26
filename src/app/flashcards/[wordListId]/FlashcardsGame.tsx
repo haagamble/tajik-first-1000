@@ -187,9 +187,9 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
             <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-6">
                     <h1 className="text-3xl font-bold text-gray-800 mb-2">📚 Flashcards</h1>
-                    <p className="text-gray-600">
+                    {/* <p className="text-gray-600">
                         {currentIndex + 1} of {currentCards.length} cards in {currentStack} stack
-                    </p>
+                    </p> */}
                     <Link href="/" className="text-blue-600 hover:underline text-sm">
                         ← Back to Home
                     </Link>

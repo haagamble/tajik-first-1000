@@ -149,7 +149,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6">
                     <h1 className="text-3xl font-bold text-gray-800 mb-2">🧠 Memory Game</h1>
-                    <h2 className="text-xl text-gray-600 mb-4">{wordList.name}</h2>
+                    {/* <h2 className="text-xl text-gray-600 mb-4">{wordList.name}</h2> */}
                     <Link href="/" className="text-blue-600 hover:underline text-sm">
                         ← Back to Home
                     </Link>

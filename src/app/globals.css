@@ -38,10 +38,11 @@ body {
   min-height: 100vh;
 }
 
+/* Testing higher contrast. Original: #fef3c7 0%, #fed7aa 50%, #fde68a 100% */
 .gradient-bg {
   background: linear-gradient(135deg,
-      #fef3c7 0%,
-      #fed7aa 50%,
+      #f9f2d9 0%,
+      #f3c795 50%,
       #fde68a 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease-in-out infinite;
