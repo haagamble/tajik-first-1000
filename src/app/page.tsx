@@ -49,23 +49,23 @@ export default function HomePage() {
     <div className="gradient-bg p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            🇹🇯 Tajik Vocabulary Practice
+        <div className="text-center mb-3 sm:mb-6">
+          <h1 className="text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+            🇹🇯 Tajik First 1000
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Learn Tajik language through interactive activities. Select a word list to get started!
+            Select a word list, then select an activity.
           </p>
         </div>
 
         {/* Word List Selection */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-4 text-center">
             Select a Word List
           </h2>
 
           {/* Tab Navigation */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4 sm:mb-6">
             <div className="bg-white rounded-lg p-1 shadow-md inline-flex">
               <button
                 onClick={() => {
@@ -74,8 +74,8 @@ export default function HomePage() {
                   setSearchTerm('');
                 }}
                 className={`px-6 py-2 rounded-md transition-all font-medium ${activeTab === 'levels'
-                    ? 'bg-blue-500 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800'
+                  ? 'bg-blue-500 text-white shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800'
                   }`}
               >
                 Levels
@@ -87,8 +87,8 @@ export default function HomePage() {
                   setSearchTerm('');
                 }}
                 className={`px-6 py-2 rounded-md transition-all font-medium ${activeTab === 'topics'
-                    ? 'bg-blue-500 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800'
+                  ? 'bg-blue-500 text-white shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800'
                   }`}
               >
                 Topics
@@ -96,8 +96,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Search Controls */}
-          <div className="flex justify-center mb-4">
+          {/* Search Controls. Maybe add later if needed*/}
+          {/* <div className="flex justify-center mb-4">
             <div className="relative max-w-md w-full">
               <input
                 type="text"
@@ -110,7 +110,7 @@ export default function HomePage() {
                 <span className="text-gray-400">🔍</span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Selected count display */}
           <p className="text-center text-gray-600 mb-4">
@@ -123,15 +123,15 @@ export default function HomePage() {
           </p>
 
           {/* Word List Grid - Compact design for mobile */}
-          <div className="bg-white rounded-lg shadow-lg p-4 max-h-80 overflow-y-auto">
+          <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4 max-h-60 sm:max-h-80 overflow-y-auto">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
               {filteredWordLists.map((wordList: WordList) => (
                 <button
                   key={wordList.id}
                   onClick={() => setSelectedWordList(wordList)}
-                  className={`p-3 rounded-lg border-2 transition-all text-center text-sm font-medium min-h-[4rem] flex flex-col justify-center ${selectedWordList?.id === wordList.id
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700'
+                  className={`p2 sm:p-3 rounded-lg border-2 transition-all text-center text-sm font-medium min-h-[4rem] flex flex-col justify-center ${selectedWordList?.id === wordList.id
+                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                    : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700'
                     }`}
                 >
                   <div className="font-semibold mb-1">

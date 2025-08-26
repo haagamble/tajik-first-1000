@@ -155,7 +155,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
                     </Link>
                 </div>
 
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <div className="bg-white rounded-lg shadow-lg px-2 sm:px-6 py-6 mb-6">
                     <div className="flex justify-between items-center text-center">
                         <div>
                             <div className="text-2xl font-bold text-purple-600">{moves}</div>
