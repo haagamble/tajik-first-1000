@@ -129,18 +129,13 @@ export default function HomePage() {
                 <button
                   key={wordList.id}
                   onClick={() => setSelectedWordList(wordList)}
-                  className={`p2 sm:p-3 rounded-lg border-2 transition-all text-center text-sm font-medium min-h-[4rem] flex flex-col justify-center ${selectedWordList?.id === wordList.id
+                  className={`p-2 sm:p-3 rounded-lg border-2 transition-all text-center text-sm font-medium min-h-[4rem] flex flex-col justify-center ${selectedWordList?.id === wordList.id
                     ? 'border-blue-500 bg-blue-50 text-blue-700'
                     : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700'
                     }`}
                 >
-                  <div className="font-semibold mb-1">
-                    {activeTab === 'levels'
-                      ? wordList.name
-                      : wordList.name.replace(/\d+$/, '').replace(/^\w+$/, (match: string) =>
-                        match.charAt(0).toUpperCase() + match.slice(1)
-                      )
-                    }
+                  <div className="font-semibold mb-1 text-center">
+                    {wordList.name}
                   </div>
                   <div className="text-xs text-gray-500">
                     {wordList.words.length} words
