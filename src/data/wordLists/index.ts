@@ -10,7 +10,6 @@ import { WordList } from '../../types/vocab';
 // ============================================================================
 
 // Import your JSON word list files here:
-import adjectives from './adjectives.json';
 import adjectives1 from './adjectives1.json';
 import adjectives2 from './adjectives2.json';
 import adjectives3 from './adjectives3.json';
@@ -89,7 +88,6 @@ export const levelWordLists: WordList[] = [
 
 // Topic-based word lists (sorted alphabetically)
 export const topicWordLists: WordList[] = [
-    adjectives as unknown as WordList,
     adjectives1 as unknown as WordList,
     adjectives2 as unknown as WordList,
     adjectives3 as unknown as WordList,

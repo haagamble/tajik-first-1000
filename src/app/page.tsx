@@ -49,9 +49,9 @@ export default function HomePage() {
     <div className="gradient-bg p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-3 sm:mb-5">
-          <h1 className="text-4xl font-bold text-gray-800 mb-3">
-            🇹🇯 Tajik First 1000
+        <div className="text-center mb-3">
+          <h1 className="font-bold text-gray-800 mb-3 whitespace-nowrap" style={{ fontSize: 'clamp(1.25rem, 5vw, 2.25rem)' }}>
+            🇹🇯 Tajik First 1000 Words
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Select a word list, then select an activity.
@@ -113,7 +113,7 @@ export default function HomePage() {
           </div> */}
 
           {/* Selected count display */}
-          <p className="text-center text-gray-600 mb-4">
+          <p className="text-center text-gray-600 mb-2">
             {filteredWordLists.length} {activeTab === 'levels' ? 'levels' : 'topics'} available
             {selectedWordList && (
               <span className="text-blue-600 font-medium">
@@ -123,7 +123,7 @@ export default function HomePage() {
           </p>
 
           {/* Word List Grid - Compact design for mobile */}
-          <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4 max-h-60 sm:max-h-70 overflow-y-auto">
+          <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4 max-h-60 sm:max-h-64 overflow-y-auto">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
               {filteredWordLists.map((wordList: WordList) => (
                 <button
@@ -145,31 +145,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Selected Word List Display */}
-        {/* {selectedWordList && (
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Selected: {selectedWordList.name}
-            </h3>
-            <p className="text-gray-600 mb-4">{selectedWordList.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {selectedWordList.words.slice(0, 10).map((word) => (
-                <span
-                  key={word.id}
-                  className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                >
-                  {word.tajik} ({word.english})
-                </span>
-              ))}
-              {selectedWordList.words.length > 10 && (
-                <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">
-                  +{selectedWordList.words.length - 10} more
-                </span>
-              )}
-            </div>
-          </div>
-        )} */}
 
         {/* Activities */}
         <div className="mb-8">
@@ -209,7 +184,7 @@ export default function HomePage() {
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h3 className="text-lg font-semibold text-gray-800 mb-3">How to Use</h3>
           <ol className="list-decimal list-inside space-y-2 text-gray-600">
-            <li>Select a word list from the options above</li>
+            <li>Select a word list from the options above. Both the topics option and the levels option contain all 1000 words.</li>
             <li>Choose an activity to practice with those words</li>
             <li>Each activity will randomly select words from your chosen list</li>
             <li>Practice regularly to improve your Tajik vocabulary!</li>

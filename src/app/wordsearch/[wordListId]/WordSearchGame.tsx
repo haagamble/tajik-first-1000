@@ -140,7 +140,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
 
         // Filter words: no spaces, max 10 letters, then select up to 15 random words
         const validWords = wordList.words.filter(word =>
-            word.tajik.length <= 10 &&
+            word.tajik.length <= 10 && word.tajik.length >= 3 &&
             !word.tajik.includes(' ')
         );
 
