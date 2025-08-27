@@ -1,51 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+/* Custom heading colors */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ebf3fb
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Liberation Sans', 'DejaVu Sans', 'Arial Unicode MS', Arial, sans-serif;
+p {
+  color: #e7f1fa
 }
 
 /* Gradient background classes */
 /* Current background should be named gradient-bg. Others are alternatives. */
 /* Trendy slightly animated gradient backgrounds */
-.gradient-bg-animated1 {
+/* background blue-purple */
+.gradient-bg {
   background: linear-gradient(135deg,
-      #667eea 0%,
-      #764ba2 50%,
+      #a1b0f4 0%,
+      #4f247b 50%,
       #667eea 100%);
   background-size: 200% 200%;
   animation: gradientShift 20s ease-in-out infinite;
   min-height: 100vh;
 }
 
-/* Testing higher contrast. Original: #fef3c7 0%, #fed7aa 50%, #fde68a 100% */
-.gradient-bg {
+/* Testing higher contra. Original: #fef3c7 0%, #fed7aa 50%, #fde68a 100% */
+/* background sunset */
+.gradient-bg-sunset {
   background: linear-gradient(135deg,
       #f9f2d9 0%,
-      #f3c795 50%,
+      #efba7d 50%,
       #fde68a 100%);
   background-size: 200% 200%;
-  animation: gradientShift 15s ease-in-out infinite;
+  animation: gradientShift 5s ease-in-out infinite;
   min-height: 100vh;
 }
 

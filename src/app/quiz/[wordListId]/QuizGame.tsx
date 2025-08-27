@@ -102,7 +102,7 @@ export default function QuizGame({ wordList }: QuizGameProps) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Loading Quiz...</h1>
+                    <h1 className="text-2xl font-bold mb-4">Loading Quiz...</h1>
                 </div>
             </div>
         );
@@ -122,19 +122,19 @@ export default function QuizGame({ wordList }: QuizGameProps) {
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto">
                     <div className="text-center mb-6">
-                        <h1 className="text-3xl font-bold text-gray-800 mb-2">🎯 Quiz Complete!</h1>
-                        <Link href="/" className="text-blue-600 hover:underline text-sm">
+                        <h1 className="text-3xl font-bold mb-2">🎯 Quiz Complete!</h1>
+                        <Link href="/" className="text-blue-100 hover:underline text-sm">
                             ← Back to Home
                         </Link>
                     </div>
 
                     <div className="bg-white rounded-lg shadow-xl p-8 text-center">
                         <div className="text-6xl mb-4">🏆</div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                        <h2 className="!text-gray-800 text-2xl font-bold mb-4">
                             Your Score: {score}/{questions.length}
                         </h2>
-                        <p className="text-4xl font-bold text-blue-600 mb-4">{percentage}%</p>
-                        <p className="text-lg text-gray-600 mb-6">{getMessage()}</p>
+                        <p className="!text-gray-800 text-4xl font-bold text-blue-600 mb-4">{percentage}%</p>
+                        <p className="!text-gray-800 text-lg mb-6">{getMessage()}</p>
 
                         <div className="flex flex-col text-lg sm:flex-row gap-4 justify-center">
                             <button
@@ -163,8 +163,8 @@ export default function QuizGame({ wordList }: QuizGameProps) {
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">❓ Vocabulary Quiz</h1>
-                    <Link href="/" className="text-blue-600 hover:underline text-sm md:text-base">
+                    <h1 className="text-3xl font-bold mb-2">❓ Vocabulary Quiz</h1>
+                    <Link href="/" className="text-blue-100 hover:underline text-sm md:text-base">
                         ← Back to Home
                     </Link>
                 </div>
@@ -190,7 +190,7 @@ export default function QuizGame({ wordList }: QuizGameProps) {
                 {/* Question */}
                 <div className="bg-white rounded-lg shadow-xl px-8 py-4 md:p-8 mb-6">
                     <div className="text-center mb-4">
-                        <h2 className="text-4xl font-bold text-gray-800 mb-2">
+                        <h2 className="!text-gray-800 text-4xl font-bold text-gray-800 mb-2">
                             {currentQuestion.word.tajik}
                         </h2>
                     </div>

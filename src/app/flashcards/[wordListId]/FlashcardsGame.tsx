@@ -105,8 +105,8 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Word List Not Found</h1>
-                    <Link href="/" className="text-blue-600 hover:underline">
+                    <h1 className="text-2xl font-bold mb-4">Word List Not Found</h1>
+                    <Link href="/" className="text-blue-100 hover:underline">
                         ← Back to Home
                     </Link>
                 </div>
@@ -119,11 +119,11 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-3xl font-bold text-green-800 mb-4">🎉 Congratulations!</h1>
-                    <p className="text-lg text-gray-700 mb-6">
+                    <h1 className="!text-gray-800 text-3xl font-bold text-green-800 mb-4">🎉 Congratulations!</h1>
+                    <p className="!text-gray-800 text-lg mb-6">
                         You&apos;ve learned all {learnedCards.length} words!
                     </p>
-                    <Link href="/" className="text-blue-600 hover:underline">
+                    <Link href="/" className="text-blue-100 hover:underline">
                         ← Back to Home
                     </Link>
                 </div>
@@ -137,8 +137,8 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto">
                     <div className="text-center mb-6">
-                        <h1 className="text-3xl font-bold text-gray-800 mb-2">📚 Flashcards</h1>
-                        <Link href="/" className="text-blue-600 hover:underline text-sm">
+                        <h1 className="text-3xl font-bold mb-2">📚 Flashcards</h1>
+                        <Link href="/" className="text-blue-100 hover:underline text-sm">
                             ← Back to Home
                         </Link>
                     </div>
@@ -167,10 +167,10 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
                     </div>
 
                     <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                        <h2 className="!text-gray-800 text-xl font-semibold mb-4">
                             No cards in {currentStack} stack
                         </h2>
-                        <p className="text-gray-600">
+                        <p className="!text-gray-800">
                             {currentStack === 'study' && 'Switch to Review to continue studying!'}
                             {currentStack === 'review' && 'Great! All review cards have been learned.'}
                         </p>
@@ -186,11 +186,11 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         <div className="gradient-bg p-4">
             <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">📚 Flashcards</h1>
+                    <h1 className="text-3xl font-bold mb-2">📚 Flashcards</h1>
                     {/* <p className="text-gray-600">
                         {currentIndex + 1} of {currentCards.length} cards in {currentStack} stack
                     </p> */}
-                    <Link href="/" className="text-blue-600 hover:underline text-sm">
+                    <Link href="/" className="text-blue-100 hover:underline text-sm">
                         ← Back to Home
                     </Link>
                 </div>
@@ -226,17 +226,17 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
                         {!isFlipped ? (
                             <div>
                                 <div className="text-6xl mb-4">🔄</div>
-                                <p className="text-sm text-gray-500 mb-4">Click to reveal</p>
-                                <h2 className="text-4xl font-bold text-gray-800 mb-2">{currentWord.tajik}</h2>
+                                <p className="!text-gray-800 text-sm mb-4">Click to reveal</p>
+                                <h2 className="!text-gray-800 text-4xl font-bold mb-2">{currentWord.tajik}</h2>
                                 {currentWord.transliteration && (
-                                    <p className="text-lg text-gray-600 italic">{currentWord.transliteration}</p>
+                                    <p className="text-lg italic">{currentWord.transliteration}</p>
                                 )}
                             </div>
                         ) : (
                             <div>
                                 <div className="text-6xl mb-4">✅</div>
-                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">{currentWord.english}</h3>
-                                <p className="text-sm text-gray-500">Did you know this word?</p>
+                                <h3 className="!text-gray-800 text-2xl font-semibold mb-4">{currentWord.english}</h3>
+                                <p className="!text-gray-800 text-sm">Did you know this word?</p>
                             </div>
                         )}
                     </div>

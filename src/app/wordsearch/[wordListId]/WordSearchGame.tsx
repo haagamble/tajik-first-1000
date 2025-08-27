@@ -379,7 +379,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         return (
             <div className="gradient-bg p-2 sm:p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Loading...</h1>
+                    <h1 className="text-xl sm:text-2xl font-bold mb-4">Loading...</h1>
                 </div>
             </div>
         );
@@ -390,11 +390,11 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-4 sm:mb-6">
-                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">🔍 Word Search</h1>
+                    <h1 className="text-2xl sm:text-3xl font-bold mb-2">🔍 Word Search</h1>
                     {/* <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                         Find Tajik words hidden in the grid
                     </p> */}
-                    <Link href="/" className="text-blue-600 hover:underline text-sm">
+                    <Link href="/" className="text-blue-100 hover:underline text-sm">
                         ← Back to Home
                     </Link>
                 </div>
@@ -404,7 +404,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                     <div className="lg:col-span-2">
                         <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2">
-                                <h2 className="text-lg sm:text-xl font-semibold">Find these words:</h2>
+                                <h2 className="!text-gray-800 text-lg sm:text-xl font-semibold">Find these words:</h2>
                                 <button
                                     onClick={resetGame}
                                     className="px-3 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 text-sm"
@@ -513,7 +513,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                     <div className="space-y-3 sm:space-y-6">
                         {/* Words to Find */}
                         <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
-                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Words to Find:</h3>
+                            <h3 className="!text-gray-800 text-base sm:text-lg font-semibold mb-3 sm:mb-4">Words to Find:</h3>
                             <div className="grid grid-cols-2 sm:grid-cols-1 gap-1">
                                 {words.map((word) => {
                                     const isFound = foundWords.some(fw => fw.word === word.tajik);

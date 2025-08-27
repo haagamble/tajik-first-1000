@@ -138,7 +138,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Loading...</h1>
+                    <h1 className="text-xl sm:text-2xl font-bold mb-4">Loading...</h1>
                 </div>
             </div>
         );
@@ -148,9 +148,9 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
         <div className="gradient-bg p-4">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">🧠 Memory Game</h1>
+                    <h1 className="text-3xl font-bold mb-2">🧠 Memory Game</h1>
                     {/* <h2 className="text-xl text-gray-600 mb-4">{wordList.name}</h2> */}
-                    <Link href="/" className="text-blue-600 hover:underline text-sm">
+                    <Link href="/" className="text-blue-100 hover:underline text-sm">
                         ← Back to Home
                     </Link>
                 </div>
@@ -176,8 +176,8 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
 
                 {isGameComplete && (
                     <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 text-center">
-                        <h3 className="text-xl font-bold mb-2">🎉 Congratulations!</h3>
-                        <p>You completed the game in {moves} moves!</p>
+                        <h3 className="!text-gray-800 text-xl font-bold mb-2">🎉 Congratulations!</h3>
+                        <p className="!text-gray-800">You completed the game in {moves} moves!</p>
                     </div>
                 )}
 

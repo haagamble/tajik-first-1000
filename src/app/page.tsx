@@ -50,17 +50,17 @@ export default function HomePage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-3">
-          <h1 className="font-bold text-gray-800 mb-3 whitespace-nowrap" style={{ fontSize: 'clamp(1.25rem, 5vw, 2.25rem)' }}>
+          <h1 className="font-bold mb-3 whitespace-nowrap" style={{ fontSize: 'clamp(1.25rem, 5vw, 2.25rem)' }}>
             🇹🇯 Tajik First 1000 Words
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto">
             Select a word list, then select an activity.
           </p>
         </div>
 
         {/* Word List Selection */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-3 text-center">
+          <h2 className="text-2xl font-bold mb-2 sm:mb-3 text-center">
             Select a Word List
           </h2>
 
@@ -113,7 +113,7 @@ export default function HomePage() {
           </div> */}
 
           {/* Selected count display */}
-          <p className="text-center text-gray-600 mb-2">
+          <p className="text-center mb-2">
             {filteredWordLists.length} {activeTab === 'levels' ? 'levels' : 'topics'} available
             {selectedWordList && (
               <span className="text-blue-600 font-medium">
@@ -148,11 +148,11 @@ export default function HomePage() {
 
         {/* Activities */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-center">
             Choose an Activity
           </h2>
           {!selectedWordList && (
-            <p className="text-center text-gray-500 mb-4 text-sm">
+            <p className="text-center mb-4 text-sm">
               👆 Select a word list above to enable activities
             </p>
           )}
@@ -171,10 +171,10 @@ export default function HomePage() {
                   }
                 }}
               >
-                <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                <h3 className="!text-gray-800 text-sm font-semibold mb-1">
                   {activity.name}
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">{activity.description}</p>
+                <p className="!text-gray-800 text-xs leading-relaxed">{activity.description}</p>
               </Link>
             ))}
           </div>
@@ -182,8 +182,8 @@ export default function HomePage() {
 
         {/* Instructions */}
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">How to Use</h3>
-          <ol className="list-decimal list-inside space-y-2 text-gray-600">
+          <h3 className="!text-gray-800 text-lg font-semibold mb-3">How to Use</h3>
+          <ol className="list-decimal list-inside space-y-2">
             <li>Select a word list from the options above. Both the topics option and the levels option contain all 1000 words.</li>
             <li>Choose an activity to practice with those words</li>
             <li>Each activity will randomly select words from your chosen list</li>
