@@ -1,4 +1,4 @@
-# Tajik Vocabulary Practice App for the first 100 words
+# Tajik Vocabulary Practice App for the first 1000 words
 
 An interactive web application for learning Tajik vocabulary through various engaging activities including flashcards, memory games, word search puzzles, and quizzes.
 
@@ -57,16 +57,16 @@ export const wordLists: WordList[] = [
   {
     id: 'my-custom-list',
     name: 'My Custom Words',
-    description: 'Description of my word list',
-    difficulty: 'beginner',
     words: [
-      { 
-        id: '1', 
-        tajik: 'Салом', 
-        english: 'Hello', 
-        transliteration: 'Salom' 
-      },
-      // Add more words...
+      [
+        'Салом',
+        'Hello'
+      ],
+      [
+        'рақам',
+        'number'  
+      ],
+      // Add more words as [tajik, english] arrays...
     ]
   }
 ];
@@ -96,16 +96,37 @@ Your JSON files should follow this structure:
 {
   "id": "unique-identifier",
   "name": "Display Name",
-  "description": "Description of the word list",
-  "difficulty": "beginner",
   "words": [
-    {
-      "id": "1",
-      "tajik": "Tajik word",
-      "english": "English translation",
-      "transliteration": "Optional transliteration",
-      "category": "Optional category"
-    }
+    [
+      "tajik_word",
+      "english_translation"
+    ],
+    [
+      "another_tajik_word", 
+      "another_english_translation"
+    ]
+  ]
+}
+```
+
+**Example:**
+```json
+{
+  "id": "adjectives1",
+  "name": "Adjectives 1",
+  "words": [
+    [
+      "ганда",
+      "bad"
+    ],
+    [
+      "гарм", 
+      "hot"
+    ],
+    [
+      "зебо",
+      "beautiful"
+    ]
   ]
 }
 ```
@@ -228,11 +249,7 @@ If you have questions or need help:
 ## Future Enhancements
 
 - Audio pronunciation
-- Progress tracking
-- User accounts
-- More game types
-- Spaced repetition learning
-- Export/import word lists
+- Export word lists
 - Offline support with PWA
 
 ---
