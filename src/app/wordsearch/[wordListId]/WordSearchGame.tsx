@@ -37,6 +37,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
     const [gridSize] = useState(10);
     const [selectionDirection, setSelectionDirection] = useState<number[] | null>(null);
     const [mounted, setMounted] = useState(false);
+    const [showCelebration, setShowCelebration] = useState(false);
 
     const initializeGrid = useCallback((wordList: VocabWord[]) => {
         // Create empty grid
@@ -296,6 +297,11 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
             }];
             setFoundWords(newFoundWords);
 
+            // Check if all words are found
+            if (newFoundWords.length === words.length) {
+                setTimeout(() => setShowCelebration(true), 500);
+            }
+
             // Mark cells as found with word index for unique coloring
             const newGrid = [...grid];
             selectedCells.forEach(([row, col]) => {
@@ -389,12 +395,27 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         <div className="gradient-bg p-2 sm:p-4">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-4 sm:mb-6">
-                    <h1 className="text-sky-100 text-2xl sm:text-3xl font-bold mb-2">🔍 Word Search</h1>
-                    {/* <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                <div className="text-center mb-6">
+                    <h1 className="text-3xl sm:text-4xl font-bold mb-3">🔍 Word Search</h1>
+                    <p className="text-lg mb-4 text-gray-100">
                         Find Tajik words hidden in the grid
-                    </p> */}
-                    <Link href="/" className="text-blue-100 hover:underline text-sm">
+                    </p>
+
+                    {/* Progress Bar */}
+                    <div className="max-w-md mx-auto mb-4">
+                        <div className="flex justify-between text-sm text-gray-200 mb-2">
+                            <span>Progress</span>
+                            <span>{foundWords.length}/{words.length} words found</span>
+                        </div>
+                        <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden">
+                            <div
+                                className="h-full bg-gradient-to-r from-green-400 to-green-500 transition-all duration-500 ease-out"
+                                style={{ width: `${(foundWords.length / words.length) * 100}%` }}
+                            />
+                        </div>
+                    </div>
+
+                    <Link href="/" className="text-blue-200 hover:text-blue-100 hover:underline text-sm">
                         ← Back to Home
                     </Link>
                 </div>
@@ -402,7 +423,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-6">
                     {/* Word Search Grid */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
+                        <div className="bg-white rounded-2xl shadow-lg p-3 sm:p-6 h-96 lg:h-[32rem] flex flex-col">
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2">
                                 <h2 className="!text-gray-800 text-lg sm:text-xl font-semibold">Find these words:</h2>
                                 <button
@@ -413,7 +434,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                                 </button>
                             </div>
 
-                            <div className="flex justify-center overflow-hidden px-1 sm:px-6 relative">
+                            <div className="flex justify-center overflow-hidden px-1 sm:px-6 relative flex-1">
                                 <div
                                     className="grid gap-0.5 sm:gap-1 select-none word-search-grid relative"
                                     style={{
@@ -512,41 +533,56 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                     {/* Word List and Found Words */}
                     <div className="space-y-3 sm:space-y-6">
                         {/* Words to Find */}
-                        <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
-                            <h3 className="!text-gray-800 text-base sm:text-lg font-semibold mb-3 sm:mb-4">Words to Find:</h3>
-                            <div className="grid grid-cols-2 sm:grid-cols-1 gap-1">
+                        <div className="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-xl border border-purple-100 p-3 sm:p-4 h-96 lg:h-[32rem] flex flex-col">
+                            <h3 className="!text-gray-800 text-base sm:text-lg font-bold mb-3 text-center">Words to Find</h3>
+                            <div className="grid grid-cols-2 lg:grid-cols-1 gap-1 sm:gap-2 overflow-y-auto flex-1">
                                 {words.map((word) => {
                                     const isFound = foundWords.some(fw => fw.word === word.tajik);
                                     return (
                                         <div
                                             key={word.id}
-                                            className={`p-1 rounded text-sm ${isFound ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
+                                            className={`relative p-2 sm:p-3 rounded-lg text-center font-bold text-sm sm:text-base transition-all duration-300 ${isFound
+                                                ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-800 scale-95 opacity-75'
+                                                : 'bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800'
                                                 }`}
                                         >
-                                            <div className="font-medium">{word.tajik}</div>
+                                            {word.tajik}
+                                            {isFound && (
+                                                <div className="absolute -top-1 -right-1 bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs animate-bounce">
+                                                    ✓
+                                                </div>
+                                            )}
                                         </div>
                                     );
                                 })}
                             </div>
                         </div>
-
-                        {/* Found Words */}
-                        {/* <div className="bg-white rounded-lg shadow-lg p-3 sm:p-6">
-                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
-                                Found: {foundWords.length}/{words.length}
-                            </h3>
-                            <div className="space-y-2">
-                                {foundWords.map((foundWord, index) => (
-                                    <div key={index} className="p-2 bg-green-100 rounded">
-                                        <div className="font-medium text-green-800 text-sm">{foundWord.word}</div>
-                                        <div className="text-xs text-green-600">{foundWord.english}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>
+
+            {/* Celebration Banner */}
+            {showCelebration && (
+                <div className="max-w-2xl mx-auto mb-6">
+                    <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg text-center">
+                        <h3 className="!text-gray-800 text-xl font-bold mb-2">🎉 Congratulations!</h3>
+                        <p className="!text-gray-800">You found all {words.length} words in the puzzle!</p>
+                        <div className="flex gap-3 justify-center mt-3">
+                            <button
+                                onClick={() => setShowCelebration(false)}
+                                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
+                            >
+                                Continue
+                            </button>
+                            <Link href="/">
+                                <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm">
+                                    Home
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

@@ -59,21 +59,26 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
 
         const currentCard = currentCards[currentIndex];
 
-        if (currentStack === 'study') {
-            // Move from study to learned
-            setStudyCards(prev => prev.filter((_, i) => i !== currentIndex));
-            setLearnedCards(prev => [...prev, currentCard]);
-        } else if (currentStack === 'review') {
-            // Move from review to learned
-            setReviewCards(prev => prev.filter((_, i) => i !== currentIndex));
-            setLearnedCards(prev => [...prev, currentCard]);
-        }
-
-        // Move to next card or adjust index
-        if (currentIndex >= currentCards.length - 1) {
-            setCurrentIndex(Math.max(0, currentCards.length - 2));
-        }
+        // Flip card back first
         setIsFlipped(false);
+
+        // Wait for flip animation to complete, then update state
+        setTimeout(() => {
+            if (currentStack === 'study') {
+                // Move from study to learned
+                setStudyCards(prev => prev.filter((_, i) => i !== currentIndex));
+                setLearnedCards(prev => [...prev, currentCard]);
+            } else if (currentStack === 'review') {
+                // Move from review to learned
+                setReviewCards(prev => prev.filter((_, i) => i !== currentIndex));
+                setLearnedCards(prev => [...prev, currentCard]);
+            }
+
+            // Move to next card or adjust index
+            if (currentIndex >= currentCards.length - 1) {
+                setCurrentIndex(Math.max(0, currentCards.length - 2));
+            }
+        }, 350); // Half of the 700ms flip animation
     };
 
     const handleWrong = () => {
@@ -81,23 +86,28 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
 
         const currentCard = currentCards[currentIndex];
 
-        if (currentStack === 'study') {
-            // Move from study to review
-            setStudyCards(prev => prev.filter((_, i) => i !== currentIndex));
-            setReviewCards(prev => [...prev, currentCard]);
-        } else if (currentStack === 'review') {
-            // Move card to bottom of review stack
-            setReviewCards(prev => {
-                const newReview = prev.filter((_, i) => i !== currentIndex);
-                return [...newReview, currentCard]; // Add to end
-            });
-        }
-
-        // Move to next card or adjust index
-        if (currentIndex >= currentCards.length - 1) {
-            setCurrentIndex(Math.max(0, currentCards.length - 2));
-        }
+        // Flip card back first
         setIsFlipped(false);
+
+        // Wait for flip animation to complete, then update state
+        setTimeout(() => {
+            if (currentStack === 'study') {
+                // Move from study to review
+                setStudyCards(prev => prev.filter((_, i) => i !== currentIndex));
+                setReviewCards(prev => [...prev, currentCard]);
+            } else if (currentStack === 'review') {
+                // Move card to bottom of review stack
+                setReviewCards(prev => {
+                    const newReview = prev.filter((_, i) => i !== currentIndex);
+                    return [...newReview, currentCard]; // Add to end
+                });
+            }
+
+            // Move to next card or adjust index
+            if (currentIndex >= currentCards.length - 1) {
+                setCurrentIndex(Math.max(0, currentCards.length - 2));
+            }
+        }, 350); // Half of the 700ms flip animation
     };
 
     const switchStack = (stack: CardStack) => {
@@ -171,14 +181,44 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
 
                     </div>
 
-                    <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <h2 className="!text-gray-800 text-xl font-semibold mb-4">
+                    <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-6">
+                        <h2 className="text-gray-800 text-xl font-semibold mb-4">
                             No cards in {currentStack} stack
                         </h2>
                         <p className="!text-gray-800">
                             {currentStack === 'study' && 'Switch to Review to continue studying!'}
                             {currentStack === 'review' && 'Great! All review cards have been learned.'}
                         </p>
+                    </div>
+
+                    {/* Progress - Always show */}
+                    <div className="bg-white rounded-lg p-4">
+                        <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                            <div>
+                                <div className="text-blue-600 font-bold text-lg">{studyCards.length}</div>
+                                <div className="text-gray-600">To Study</div>
+                            </div>
+                            <div>
+                                <div className="text-orange-600 font-bold text-lg">{reviewCards.length}</div>
+                                <div className="text-gray-600">To Review</div>
+                            </div>
+                            <div>
+                                <div className="text-green-600 font-bold text-lg">{learnedCards.length}</div>
+                                <div className="text-gray-600">Learned</div>
+                            </div>
+                        </div>
+                        <div className="mt-4">
+                            <div className="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Overall Progress</span>
+                                <span>{Math.round((learnedCards.length / wordList.words.length) * 100)}%</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-green-600 h-2 rounded-full transition-all duration-300"
+                                    style={{ width: `${(learnedCards.length / wordList.words.length) * 100}%` }}
+                                ></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,47 +263,69 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
 
                 </div>
 
-                <div className="bg-white rounded-lg shadow-xl p-8 mb-6">
-                    <div
-                        className="text-center cursor-pointer min-h-[200px] flex flex-col justify-center"
-                        onClick={handleFlip}
-                    >
-                        {!isFlipped ? (
-                            <div>
-                                <div className="text-6xl mb-4">🔄</div>
-                                <p className="!text-gray-800 text-sm mb-4">Click to reveal</p>
-                                <h2 className="!text-gray-800 text-5xl md:text-6xl font-black mb-2">{currentWord.tajik}</h2>
-                                {currentWord.transliteration && (
-                                    <p className="text-lg italic">{currentWord.transliteration}</p>
-                                )}
+                {/* 3D Flip Card */}
+                <div className="mb-6">
+                    <div className="relative h-80 perspective-1000">
+                        <div
+                            className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''
+                                }`}
+                            onClick={handleFlip}
+                        >
+                            {/* Front of card */}
+                            <div className="absolute inset-0 w-full h-full backface-hidden">
+                                <div className="h-full bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl border border-blue-100 flex flex-col justify-center items-center p-8 transform hover:scale-105 transition-transform">
+                                    <div className="text-center mb-6">
+                                        <div className="text-5xl md:text-6xl font-black !text-gray-800 mb-4">
+                                            {currentWord.tajik}
+                                        </div>
+                                        {currentWord.transliteration && (
+                                            <div className="text-lg text-blue-600 font-medium">
+                                                /{currentWord.transliteration}/
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="absolute bottom-6 text-blue-400 text-sm">
+                                        🔄 Tap to reveal meaning
+                                    </div>
+                                </div>
                             </div>
-                        ) : (
-                            <div>
-                                <div className="text-6xl mb-4">✅</div>
-                                <h3 className="!text-gray-800 text-3xl md:text-4xl font-bold mb-4">{currentWord.english}</h3>
-                                <p className="!text-gray-800 text-sm">Did you know this word?</p>
+
+                            {/* Back of card */}
+                            <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+                                <div className="h-full bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl shadow-2xl border border-green-100 flex flex-col justify-center items-center p-8">
+                                    <div className="text-center mb-8">
+                                        <div className="text-3xl md:text-4xl font-bold !text-gray-800 mb-2">
+                                            {currentWord.english}
+                                        </div>
+                                        <div className="text-lg text-green-600 font-medium">
+                                            {currentWord.tajik}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex space-x-4">
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); handleWrong(); }}
+                                            className="flex items-center space-x-2 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105"
+                                        >
+                                            {/* <span className="text-lg">❌</span> */}
+                                            <span>Hard</span>
+                                        </button>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); handleRight(); }}
+                                            className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105"
+                                        >
+                                            {/* <span className="text-lg">✅</span> */}
+                                            <span>Easy</span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        )}
+                        </div>
                     </div>
                 </div>
 
-                {/* Right/Wrong buttons - only show when flipped */}
-                {isFlipped && (
-                    <div className="flex justify-center space-x-6 mb-6">
-                        <button
-                            onClick={handleWrong}
-                            className="px-6 py-3 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 shadow-lg"
-                        >
-                            ❌ Wrong
-                        </button>
-                        <button
-                            onClick={handleRight}
-                            className="px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 shadow-lg"
-                        >
-                            ✅ Right
-                        </button>
-                    </div>
-                )}
+
 
                 {/* Progress */}
                 <div className="bg-white rounded-lg p-4">

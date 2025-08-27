@@ -183,26 +183,43 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
 
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
                     {cards.map((card) => (
-                        <div
-                            key={card.id}
-                            onClick={() => handleCardClick(card)}
-                            className={`
-                                h-20 sm:h-24 bg-white rounded-lg shadow-lg transition-all duration-300 cursor-pointer
-                                flex items-center justify-center p-3 text-center
-                                ${card.isFlipped || card.isMatched ? 'shadow-xl' : 'hover:shadow-xl'}
-                                ${card.isMatched ? 'bg-green-100 border-2 border-green-400' : ''}
-                                ${flippedCards.includes(card) && !card.isMatched ? 'bg-blue-100 border-2 border-blue-400' : ''}
-                            `}
-                        >
-                            {card.isFlipped || card.isMatched ? (
-                                <div className="w-full">
-                                    <div className={`text-base sm:text-lg font-bold ${card.type === 'tajik' ? 'text-purple-700 font-black' : 'text-blue-700'}`}>
-                                        {card.text}
+                        <div key={card.id} className="h-20 sm:h-24">
+                            <div className="relative w-full h-full perspective-1000">
+                                <div
+                                    onClick={() => handleCardClick(card)}
+                                    className={`absolute inset-0 w-full h-full transition-transform duration-500 transform-style-preserve-3d cursor-pointer ${card.isFlipped || card.isMatched ? 'rotate-y-180' : ''
+                                        }`}
+                                >
+                                    {/* Front of card (gradient design) */}
+                                    <div className="absolute inset-0 w-full h-full backface-hidden">
+                                        <div className="h-full bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500 rounded-xl shadow-xl border border-white/20 flex items-center justify-center transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                                            {/* Card pattern overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                                        </div>
+                                    </div>
+
+                                    {/* Back of card (word) */}
+                                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+                                        <div className={`h-full rounded-lg shadow-xl border-2 flex items-center justify-center p-3 text-center ${card.isMatched
+                                            ? 'bg-gradient-to-br from-green-100 to-green-200 border-green-400'
+                                            : card.type === 'tajik'
+                                                ? 'bg-gradient-to-br from-purple-100 to-purple-200 border-purple-400'
+                                                : 'bg-gradient-to-br from-blue-100 to-blue-200 border-blue-400'
+                                            }`}>
+                                            <div className="w-full">
+                                                <div className={`text-base sm:text-lg font-bold ${card.isMatched
+                                                    ? 'text-green-800'
+                                                    : card.type === 'tajik'
+                                                        ? 'text-purple-700 font-black'
+                                                        : 'text-blue-700'
+                                                    }`}>
+                                                    {card.text}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            ) : (
-                                <div className="text-2xl sm:text-3xl">❓</div>
-                            )}
+                            </div>
                         </div>
                     ))}
                 </div>

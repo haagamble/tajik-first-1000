@@ -187,36 +187,49 @@ export default function QuizGame({ wordList }: QuizGameProps) {
                     </div>
                 </div>
 
-                {/* Question */}
-                <div className="bg-white rounded-lg shadow-xl px-8 py-4 md:p-8 mb-6">
-                    <div className="text-center mb-4">
-                        <h2 className="!text-gray-800 text-5xl md:text-6xl font-black mb-2">
+                {/* Question Card */}
+                <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl border border-blue-100 px-6 py-4 md:px-8 md:py-6 mb-6">
+                    <div className="text-center mb-6">
+                        <div className="text-4xl md:text-5xl mb-3">🤔</div>
+                        <h2 className="!text-gray-800 text-4xl md:text-5xl font-black mb-3">
                             {currentQuestion.word.tajik}
                         </h2>
+                        <p className="text-blue-600 text-base md:text-lg font-medium">Choose the correct translation</p>
                     </div>
 
                     {/* Answer Options */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {currentQuestion.options.map((option, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleAnswerSelect(option)}
                                 disabled={isAnswered}
-                                className={`p-4 text-center rounded-lg border-2 transition-all md:min-h-[100px] ${isAnswered
+                                className={`group relative p-4 md:p-5 text-center rounded-2xl border-2 transition-all duration-300 min-h-[80px] md:min-h-[100px] transform ${isAnswered
                                     ? option === currentQuestion.correctAnswer
-                                        ? 'border-green-500 bg-green-100'
+                                        ? 'border-green-500 bg-gradient-to-br from-green-100 to-green-200 scale-105 shadow-xl'
                                         : option === selectedAnswer && option !== currentQuestion.correctAnswer
-                                            ? 'border-red-500 bg-red-100'
-                                            : 'border-gray-200 bg-gray-50'
-                                    : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                                            ? 'border-red-500 bg-gradient-to-br from-red-100 to-red-200 scale-95 shadow-lg'
+                                            : 'border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 opacity-60'
+                                    : 'border-gray-300 bg-gradient-to-br from-white to-gray-50 hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 hover:scale-105 hover:shadow-xl active:scale-95'
                                     }`}
                             >
-                                <span className="text-xl md:text-2xl font-medium text-gray-800">{option}</span>
-                                {isAnswered && option === currentQuestion.correctAnswer && (
-                                    <span className="ml-2 text-green-600">✅</span>
-                                )}
-                                {isAnswered && option === selectedAnswer && option !== currentQuestion.correctAnswer && (
-                                    <span className="ml-2 text-red-600">❌</span>
+                                <div className="flex items-center justify-center h-full">
+                                    <span className="text-xl md:text-2xl font-bold !text-gray-800">{option}</span>
+                                    {isAnswered && option === currentQuestion.correctAnswer && (
+                                        <div className="absolute -top-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg animate-bounce">
+                                            ✅
+                                        </div>
+                                    )}
+                                    {isAnswered && option === selectedAnswer && option !== currentQuestion.correctAnswer && (
+                                        <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-2 shadow-lg animate-pulse">
+                                            ❌
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Hover glow effect */}
+                                {!isAnswered && (
+                                    <div className="absolute inset-0 rounded-2xl bg-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                                 )}
                             </button>
                         ))}
@@ -242,17 +255,17 @@ export default function QuizGame({ wordList }: QuizGameProps) {
                     )} */}
                 </div>
 
-                {/* Navigation */}
-                {isAnswered && (
-                    <div className="text-center">
+                {/* Navigation - Fixed height container to prevent layout shift */}
+                <div className="h-16 flex items-center justify-center">
+                    {isAnswered && (
                         <button
                             onClick={handleNextQuestion}
-                            className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-lg font-semibold"
+                            className="px-8 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 text-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg"
                         >
                             {currentQuestionIndex < questions.length - 1 ? 'Next Question →' : 'Finish Quiz'}
                         </button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
