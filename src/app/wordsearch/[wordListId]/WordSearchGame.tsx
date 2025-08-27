@@ -390,7 +390,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-4 sm:mb-6">
-                    <h1 className="text-2xl sm:text-3xl font-bold mb-2">🔍 Word Search</h1>
+                    <h1 className="text-sky-100 text-2xl sm:text-3xl font-bold mb-2">🔍 Word Search</h1>
                     {/* <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                         Find Tajik words hidden in the grid
                     </p> */}

@@ -85,8 +85,13 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
             // Move from study to review
             setStudyCards(prev => prev.filter((_, i) => i !== currentIndex));
             setReviewCards(prev => [...prev, currentCard]);
+        } else if (currentStack === 'review') {
+            // Move card to bottom of review stack
+            setReviewCards(prev => {
+                const newReview = prev.filter((_, i) => i !== currentIndex);
+                return [...newReview, currentCard]; // Add to end
+            });
         }
-        // If in review stack, card stays in review (no action needed)
 
         // Move to next card or adjust index
         if (currentIndex >= currentCards.length - 1) {
@@ -186,7 +191,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         <div className="gradient-bg p-4">
             <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold mb-2">📚 Flashcards</h1>
+                    <h1 className="text-sky-100 text-3xl font-bold mb-2">📚 Flashcards</h1>
                     {/* <p className="text-gray-600">
                         {currentIndex + 1} of {currentCards.length} cards in {currentStack} stack
                     </p> */}
@@ -227,7 +232,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
                             <div>
                                 <div className="text-6xl mb-4">🔄</div>
                                 <p className="!text-gray-800 text-sm mb-4">Click to reveal</p>
-                                <h2 className="!text-gray-800 text-4xl font-bold mb-2">{currentWord.tajik}</h2>
+                                <h2 className="!text-gray-800 text-5xl md:text-6xl font-black mb-2">{currentWord.tajik}</h2>
                                 {currentWord.transliteration && (
                                     <p className="text-lg italic">{currentWord.transliteration}</p>
                                 )}
@@ -235,7 +240,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
                         ) : (
                             <div>
                                 <div className="text-6xl mb-4">✅</div>
-                                <h3 className="!text-gray-800 text-2xl font-semibold mb-4">{currentWord.english}</h3>
+                                <h3 className="!text-gray-800 text-3xl md:text-4xl font-bold mb-4">{currentWord.english}</h3>
                                 <p className="!text-gray-800 text-sm">Did you know this word?</p>
                             </div>
                         )}

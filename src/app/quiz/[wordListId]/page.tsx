@@ -20,7 +20,7 @@ export default async function QuizPage({ params }: { params: Promise<{ wordListI
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
                     <h1 className="text-2xl font-bold mb-4">Word List Not Found</h1>
-                    <Link href="/" className="text-blue-600 hover:underline">
+                    <Link href="/" className="text-blue-100 hover:underline">
                         ← Back to Home
                     </Link>
                 </div>

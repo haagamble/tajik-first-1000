@@ -148,7 +148,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
         <div className="gradient-bg p-4">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-bold mb-2">🧠 Memory Game</h1>
+                    <h1 className="text-sky-100 text-3xl font-bold mb-2">🧠 Memory Game</h1>
                     {/* <h2 className="text-xl text-gray-600 mb-4">{wordList.name}</h2> */}
                     <Link href="/" className="text-blue-100 hover:underline text-sm">
                         ← Back to Home
@@ -196,7 +196,7 @@ export default function MemoryGame({ wordList }: MemoryGameProps) {
                         >
                             {card.isFlipped || card.isMatched ? (
                                 <div className="w-full">
-                                    <div className={`text-sm sm:text-base font-semibold ${card.type === 'tajik' ? 'text-purple-700' : 'text-blue-700'}`}>
+                                    <div className={`text-base sm:text-lg font-bold ${card.type === 'tajik' ? 'text-purple-700 font-black' : 'text-blue-700'}`}>
                                         {card.text}
                                     </div>
                                 </div>
