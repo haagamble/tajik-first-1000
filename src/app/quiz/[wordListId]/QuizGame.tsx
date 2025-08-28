@@ -190,11 +190,10 @@ export default function QuizGame({ wordList }: QuizGameProps) {
                 {/* Question Card */}
                 <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl border border-blue-100 px-6 py-4 md:px-8 md:py-6 mb-6">
                     <div className="text-center mb-6">
-                        <div className="text-4xl md:text-5xl mb-3">🤔</div>
+                        {/* <div className="text-4xl md:text-5xl mb-3">🤔</div> */}
                         <h2 className="!text-gray-800 text-4xl md:text-5xl font-black mb-3">
                             {currentQuestion.word.tajik}
                         </h2>
-                        <p className="text-blue-600 text-base md:text-lg font-medium">Choose the correct translation</p>
                     </div>
 
                     {/* Answer Options */}
@@ -204,7 +203,7 @@ export default function QuizGame({ wordList }: QuizGameProps) {
                                 key={index}
                                 onClick={() => handleAnswerSelect(option)}
                                 disabled={isAnswered}
-                                className={`group relative p-4 md:p-5 text-center rounded-2xl border-2 transition-all duration-300 min-h-[80px] md:min-h-[100px] transform ${isAnswered
+                                className={`group relative p-3 md:p-5 text-center rounded-2xl border-2 transition-all duration-300 min-h-[80px] md:min-h-[100px] transform ${isAnswered
                                     ? option === currentQuestion.correctAnswer
                                         ? 'border-green-500 bg-gradient-to-br from-green-100 to-green-200 scale-105 shadow-xl'
                                         : option === selectedAnswer && option !== currentQuestion.correctAnswer
