@@ -1,7 +1,11 @@
 {
-  "id": "adjectives-conjunctions",
-  "name": "Adjectives & Conjunctions",
+  "id": "adverbs-conjunctions",
+  "name": "Adverbs & Conjunctions",
   "words": [
+    [
+      "аллакай",
+      "already"
+    ],
     [
       "боз",
       "again"
@@ -28,7 +32,7 @@
     ],
     [
       "фақат",
-      "only, just"
+      "only"
     ],
     [
       "чаро",
@@ -88,7 +92,7 @@
     ],
     [
       "баъд",
-      "after/later"
+      "after, later"
     ],
     [
       "хеле",

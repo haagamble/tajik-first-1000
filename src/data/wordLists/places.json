@@ -3,6 +3,10 @@
   "name": "Places",
   "words": [
     [
+      "бино",
+      "building"
+    ],
+    [
       "боғ",
       "garden"
     ],
@@ -28,7 +32,7 @@
     ],
     [
       "ҳавлӣ",
-      "house with a yard"
+      "house yard"
     ],
     [
       "чойхона",
@@ -71,6 +75,10 @@
       "post office"
     ],
     [
+      "театр",
+      "theatre"
+    ],
+    [
       "боғи ҳайвонот",
       "zoo"
     ],
@@ -83,12 +91,12 @@
       "factory"
     ],
     [
-      "замин ",
+      "замин",
       "earth"
     ],
     [
       "институт",
-      "college, institute"
+      "institute"
     ],
     [
       "масҷид",
@@ -101,10 +109,6 @@
     [
       "тарабхона",
       "restaurant"
-    ],
-    [
-      "театр",
-      "theatre"
     ],
     [
       "фирма",
@@ -180,7 +184,7 @@
     ],
     [
       "хиёбон",
-      "avenue, wide street"
+      "avenue"
     ],
     [
       "қитъа",

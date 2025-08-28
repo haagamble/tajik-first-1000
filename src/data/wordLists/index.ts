@@ -13,7 +13,7 @@ import { WordList } from '../../types/vocab';
 import adjectives1 from './adjectives1.json';
 import adjectives2 from './adjectives2.json';
 import adjectives3 from './adjectives3.json';
-import adjectivesConjunctions from './adjectives-conjunctions.json';
+import adverbsConjunctions from './adverbs-conjunctions.json';
 import animals from './animals.json';
 import body from './body.json';
 import food1 from './food1.json';
@@ -34,7 +34,7 @@ import prepositionsPronouns from './prepositions-pronouns.json';
 import timeDate from './time-date.json';
 import verbs1 from './verbs1.json';
 import verbs2 from './verbs2.json';
-import verbs3 from './verbs-3.json';
+import verbs3 from './verbs3.json';
 
 // Level-based word lists - adding all 20 levels
 import level01 from './level01.json';
@@ -91,7 +91,7 @@ export const topicWordLists: WordList[] = [
     adjectives1 as unknown as WordList,
     adjectives2 as unknown as WordList,
     adjectives3 as unknown as WordList,
-    adjectivesConjunctions as unknown as WordList,
+    adverbsConjunctions as unknown as WordList,
     animals as unknown as WordList,
     body as unknown as WordList,
     food1 as unknown as WordList,
