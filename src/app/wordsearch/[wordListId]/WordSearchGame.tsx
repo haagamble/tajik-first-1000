@@ -396,10 +396,11 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl sm:text-4xl font-bold mb-3">🔍 Word Search</h1>
-                    <p className="text-lg mb-4 text-gray-100">
-                        Find Tajik words hidden in the grid
-                    </p>
+                    <h1 className="text-sky-100 text-3xl sm:text-4xl font-bold mb-3">🔍 Word Search</h1>
+
+                    <Link href="/" className="text-blue-200 hover:text-blue-100 hover:underline text-sm">
+                        ← Back to Home
+                    </Link>
 
                     {/* Progress Bar */}
                     <div className="max-w-md mx-auto mb-4">
@@ -415,9 +416,6 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                         </div>
                     </div>
 
-                    <Link href="/" className="text-blue-200 hover:text-blue-100 hover:underline text-sm">
-                        ← Back to Home
-                    </Link>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-6">
@@ -530,7 +528,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                         </div>
                     </div>
 
-                    {/* Word List and Found Words */}
+                    {/* Word List */}
                     <div className="space-y-3 sm:space-y-6">
                         {/* Words to Find */}
                         <div className="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-xl border border-purple-100 p-3 sm:p-4 h-96 lg:h-[32rem] flex flex-col">
