@@ -116,11 +116,11 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         setIsFlipped(false);
     };
 
-    if (!mounted || (currentCards.length === 0 && currentStack === 'study' && studyCards.length === 0 && reviewCards.length === 0)) {
+    if (!mounted || (currentCards.length === 0 && currentStack === 'study' && studyCards.length === 0 && reviewCards.length === 0 && learnedCards.length === 0)) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-2xl font-bold mb-4">Word List Not Found</h1>
+                    <h1 className="text-sky-100 text-2xl font-bold mb-4">Word List Not Found</h1>
                     <Link href="/" className="text-blue-100 hover:underline">
                         ← Back to Home
                     </Link>
@@ -134,7 +134,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="!text-gray-800 text-3xl font-bold text-green-800 mb-4">🎉 Congratulations!</h1>
+                    <h1 className="text-gray-800 text-3xl font-bold text-green-800 mb-4">🎉 Congratulations!</h1>
                     <p className="!text-gray-800 text-lg mb-6">
                         You&apos;ve learned all {learnedCards.length} words!
                     </p>
@@ -152,7 +152,7 @@ export default function FlashcardsGame({ wordList }: FlashcardsGameProps) {
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto">
                     <div className="text-center mb-6">
-                        <h1 className="text-3xl font-bold mb-2">📚 Flashcards</h1>
+                        <h1 className="text-sky-100 text-3xl font-bold mb-2">📚 Flashcards</h1>
                         <Link href="/" className="text-blue-100 hover:underline text-sm">
                             ← Back to Home
                         </Link>

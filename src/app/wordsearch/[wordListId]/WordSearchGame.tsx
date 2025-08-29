@@ -315,9 +315,9 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
 
     const resetGame = () => {
         setFoundWords([]);
-        // Filter words: no spaces, max 10 letters, then select up to 15 random words
+        // Filter words: no spaces, max 10 letters, min 3 letters, then select up to 15 random words
         const validWords = wordList.words.filter(word =>
-            word.tajik.length <= 10 &&
+            word.tajik.length <= 10 && word.tajik.length >= 3 &&
             !word.tajik.includes(' ')
         );
 
@@ -385,15 +385,15 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
         return (
             <div className="gradient-bg p-2 sm:p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-xl sm:text-2xl font-bold mb-4">Loading...</h1>
+                    <h1 className="text-sky-100 text-xl sm:text-2xl font-bold mb-4">Loading...</h1>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="gradient-bg p-2 sm:p-4">
-            <div className="max-w-6xl mx-auto">
+        <div className="gradient-bg p-2 sm:p-4 min-h-screen">
+            <div className="max-w-6xl mx-auto pb-4">
                 {/* Header */}
                 <div className="text-center mb-6">
                     <h1 className="text-sky-100 text-3xl sm:text-4xl font-bold mb-3">🔍 Word Search</h1>
@@ -418,10 +418,10 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
 
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
                     {/* Word Search Grid */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white rounded-2xl shadow-lg p-3 sm:p-6 h-96 lg:h-[32rem] flex flex-col">
+                        <div className="bg-white rounded-2xl shadow-lg p-3 sm:p-6 h-[55vh] sm:h-96 lg:h-[32rem] flex flex-col">
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2">
                                 <h2 className="!text-gray-800 text-lg sm:text-xl font-semibold">Find these words:</h2>
                                 <button
@@ -432,15 +432,15 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                                 </button>
                             </div>
 
-                            <div className="flex justify-center overflow-hidden px-1 sm:px-6 relative flex-1">
+                            <div className="flex justify-center px-1 sm:px-6 relative flex-1 items-center">
                                 <div
                                     className="grid gap-0.5 sm:gap-1 select-none word-search-grid relative"
                                     style={{
                                         gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-                                        width: 'min(90vw, 350px)',
-                                        height: 'min(90vw, 350px)',
-                                        maxWidth: '100%',
-                                        maxHeight: '100%',
+                                        width: 'min(80vw, 320px)',
+                                        height: 'min(80vw, 320px)',
+                                        maxWidth: 'calc(100% - 1rem)',
+                                        maxHeight: 'calc(100% - 1rem)',
                                         touchAction: 'none'
                                     }}
                                     onMouseLeave={() => {
@@ -531,22 +531,22 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                     {/* Word List */}
                     <div className="space-y-3 sm:space-y-6">
                         {/* Words to Find */}
-                        <div className="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-xl border border-purple-100 p-3 sm:p-4 h-96 lg:h-[32rem] flex flex-col">
+                        <div className="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-xl border border-purple-100 p-3 sm:p-4 h-[40vh] sm:h-96 lg:h-[32rem] flex flex-col">
                             <h3 className="!text-gray-800 text-base sm:text-lg font-bold mb-3 text-center">Words to Find</h3>
-                            <div className="grid grid-cols-2 lg:grid-cols-1 gap-1 sm:gap-2 overflow-y-auto flex-1">
+                            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3 overflow-y-auto flex-1 p-1">
                                 {words.map((word) => {
                                     const isFound = foundWords.some(fw => fw.word === word.tajik);
                                     return (
                                         <div
                                             key={word.id}
-                                            className={`relative p-2 sm:p-3 rounded-lg text-center font-bold text-sm sm:text-base transition-all duration-300 ${isFound
+                                            className={`relative p-2 sm:p-3 m-1 rounded-lg text-center font-bold text-sm sm:text-base transition-all duration-300 ${isFound
                                                 ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-800 scale-95 opacity-75'
                                                 : 'bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800'
                                                 }`}
                                         >
                                             {word.tajik}
                                             {isFound && (
-                                                <div className="absolute -top-1 -right-1 bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs animate-bounce">
+                                                <div className="absolute -top-1 -right-1 bg-green-500 text-white rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-xs">
                                                     ✓
                                                 </div>
                                             )}

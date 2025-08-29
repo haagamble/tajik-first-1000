@@ -19,7 +19,7 @@ export default async function WordSearchPage({ params }: { params: Promise<{ wor
         return (
             <div className="gradient-bg p-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h1 className="text-2xl font-bold mb-4">Word List Not Found</h1>
+                    <h1 className="text-sky-100 text-2xl font-bold mb-4">Word List Not Found</h1>
                     <Link href="/" className="text-blue-100 hover:underline">
                         ← Back to Home
                     </Link>
