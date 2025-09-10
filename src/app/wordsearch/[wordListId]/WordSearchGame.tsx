@@ -421,7 +421,7 @@ export default function WordSearchGame({ wordList }: WordSearchGameProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
                     {/* Word Search Grid */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white rounded-2xl shadow-lg p-3 sm:p-6 h-[55vh] sm:h-96 lg:h-[32rem] flex flex-col">
+                        <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-8 h-[55vh] sm:h-96 lg:h-[32rem] flex flex-col">
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2">
                                 <h2 className="!text-gray-800 text-lg sm:text-xl font-semibold">Find these words:</h2>
                                 <button
